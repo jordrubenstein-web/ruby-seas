@@ -31,8 +31,8 @@ export const PRODUCT_CATEGORIES = [
       "From North Atlantic snow crab and king crab to black tiger shrimp, scallops, and octopus — graded, sized, and shipped IQF for maximum yield.",
     badge: "IQF Graded",
     image:
-      "https://images.unsplash.com/photo-1565680018434-913e9e7a0f48?w=800&q=80",
-    imageAlt: "Fresh shellfish selection",
+      "https://images.unsplash.com/photo-1714989599705-692ee9400a3a?w=800&q=80",
+    imageAlt: "Fresh crab and shellfish on ice",
   },
   {
     id: "value-added",

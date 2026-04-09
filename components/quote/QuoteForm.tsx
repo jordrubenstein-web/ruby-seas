@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, type DefaultValues } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { StepIndicator } from "./StepIndicator";
@@ -54,7 +54,7 @@ export function QuoteForm() {
       email: "",
       phone: "",
       message: "",
-    } as QuoteFormValues,
+    } satisfies DefaultValues<QuoteFormValues>,
   });
 
   const buyerType = watch("buyerType");
