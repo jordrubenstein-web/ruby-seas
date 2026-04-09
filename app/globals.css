@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --section-py: 6rem;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --section-py: 8rem;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-pearl text-slate-700 antialiased;
+}
+
+@layer utilities {
+  .section-py {
+    padding-top: var(--section-py);
+    padding-bottom: var(--section-py);
+  }
+}
