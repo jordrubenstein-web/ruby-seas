@@ -29,8 +29,8 @@ const config: Config = {
         accent: "#D4AF37",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-montserrat)", "system-ui", "sans-serif"],
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["Montserrat", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       maxWidth: {
         content: "1280px",

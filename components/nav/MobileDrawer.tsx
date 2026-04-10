@@ -1,8 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/lib/constants";
+import { useLocationHash } from "@/hooks/useLocationHash";
+import { useHomeSectionSpy } from "@/hooks/useHomeSectionSpy";
+import { getEffectiveHomeSectionHref, isNavLinkActive } from "@/lib/nav-active";
 import { BrandLockup } from "./BrandLockup";
+import { HomeSectionLink } from "./HomeNavLink";
 
 type Props = {
   open: boolean;
@@ -10,6 +15,11 @@ type Props = {
 };
 
 export function MobileDrawer({ open, onClose }: Props) {
+  const pathname = usePathname();
+  const hash = useLocationHash();
+  const spyHref = useHomeSectionSpy();
+  const effectiveSectionHref = getEffectiveHomeSectionHref(pathname, hash, spyHref);
+
   return (
     <>
       <div
@@ -42,17 +52,31 @@ export function MobileDrawer({ open, onClose }: Props) {
             </svg>
           </button>
         </div>
-        <nav className="flex flex-1 flex-col gap-1 p-4">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={onClose}
-              className="rounded-xl px-4 py-3 text-base font-medium text-slate-200 hover:bg-navy-800 hover:text-white"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav className="flex flex-1 flex-col gap-1 overflow-y-auto p-4">
+          {NAV_LINKS.map((link) => {
+            const cls = `rounded-xl px-4 py-3 text-base font-medium transition hover:bg-navy-800 hover:text-white ${
+              isNavLinkActive(pathname, hash, link.href, effectiveSectionHref)
+                ? "bg-navy-800 text-seafoam-400"
+                : "text-slate-200"
+            }`;
+            if (link.href.startsWith("/#")) {
+              return (
+                <HomeSectionLink
+                  key={link.href}
+                  href={link.href as `/#${string}`}
+                  className={cls}
+                  onNavigate={onClose}
+                >
+                  {link.label}
+                </HomeSectionLink>
+              );
+            }
+            return (
+              <Link key={link.href} href={link.href} onClick={onClose} className={cls}>
+                {link.label}
+              </Link>
+            );
+          })}
           <Link
             href="/get-a-quote"
             onClick={onClose}

@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { SITE_LOCKUP_WHITE } from "@/lib/constants";
+import { HomeNavLink } from "./HomeNavLink";
 
 type Props = {
   size?: "default" | "compact";
@@ -18,9 +18,8 @@ export function BrandLockup({ size = "default", className = "", onNavigate }: Pr
     : "h-12 w-auto sm:h-14 md:h-[4.25rem]";
 
   return (
-    <Link
-      href="/"
-      onClick={onNavigate}
+    <HomeNavLink
+      onNavigate={onNavigate}
       className={`group flex min-w-0 items-center ${className}`}
     >
       <Image
@@ -28,10 +27,10 @@ export function BrandLockup({ size = "default", className = "", onNavigate }: Pr
         alt={SITE_LOCKUP_WHITE.alt}
         width={SITE_LOCKUP_WHITE.width}
         height={SITE_LOCKUP_WHITE.height}
-        className={`${lockupClass} shrink-0 object-contain object-left [filter:drop-shadow(0_2px_12px_rgba(0,0,0,0.45))]`}
+        className={`${lockupClass} shrink-0 object-contain object-left drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]`}
         sizes={isCompact ? "240px" : "(max-width: 768px) 280px, 360px"}
         priority
       />
-    </Link>
+    </HomeNavLink>
   );
 }

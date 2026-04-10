@@ -27,7 +27,10 @@ export function HeroSection() {
   const showVideo = motionOk;
 
   return (
-    <section className="relative min-h-[100svh] overflow-hidden">
+    <section
+      id="site-hero"
+      className="relative min-h-[100svh] overflow-hidden scroll-mt-0"
+    >
       <div className="absolute inset-0">
         {showVideo ? (
           <video
@@ -114,9 +117,9 @@ export function HeroSection() {
             variants={fadeUp}
             className="mt-6 max-w-2xl text-lg text-white/95 drop-shadow-[0_1px_8px_rgba(0,0,0,0.35)]"
           >
-            Ruby Seas supplies 190+ premium seafood products to 145 partners
-            across 42 ports worldwide — with EU/FDA-aligned supply discipline
-            and cold-chain you can rely on.
+            Delivering premium seafood to foodservice and retail partners across
+            North America—while executing the same standards across global
+            markets.
           </motion.p>
           <motion.div
             variants={fadeUp}

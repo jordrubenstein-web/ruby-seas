@@ -14,15 +14,15 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <div className="border-b border-slate-100 bg-pearl pt-28 pb-16">
+      <div className="border-b border-slate-100 bg-gradient-to-b from-navy-900 to-navy-800 pt-28 pb-16 text-center">
         <div className="mx-auto max-w-content px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-seafoam-600">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-seafoam-400">
             Global impact
           </p>
-          <h1 className="mt-3 font-display text-4xl font-bold text-navy-900 md:text-5xl">
+          <h1 className="mt-3 font-display text-4xl font-bold text-white md:text-5xl">
             Integrity at scale
           </h1>
-          <p className="mt-4 max-w-3xl text-lg text-slate-600">
+          <p className="mx-auto mt-4 max-w-3xl text-lg text-slate-300">
             Ruby Seas operates where procurement, compliance, and cold-chain
             execution intersect — for retailers, wholesalers, and international
             buyers who cannot afford ambiguity.
@@ -30,10 +30,11 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <section className="section-py bg-white">
-        <SectionWrapper>
+      <section className="section-py relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-pearl">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(43,138,126,0.06),transparent)]" />
+        <div className="relative mx-auto max-w-content px-4 sm:px-6 lg:px-8">
           <NarrativeSection />
-        </SectionWrapper>
+        </div>
       </section>
 
       <section className="section-py bg-pearl">

@@ -4,23 +4,39 @@ import { STATS } from "@/lib/constants";
 import { StatCard } from "@/components/shared/StatCard";
 import { useCountUp } from "@/hooks/useCountUp";
 
-function AnimatedStat({
+export function AnimatedStat({
   value,
   suffix,
   label,
+  variant = "light",
+  /** Index in the grid — delays count-up so stats animate in sequence while scrolling. */
+  staggerIndex = 0,
+  /** Drive start from parent (e.g. Framer `useInView`) when IO is unreliable. */
+  startWhen,
 }: {
   value: number;
   suffix: string;
   label: string;
+  variant?: "light" | "dark";
+  staggerIndex?: number;
+  startWhen?: boolean;
 }) {
-  const { count, ref } = useCountUp(value, 2200);
+  const { count, ref, settled } = useCountUp(value, 2100, {
+    staggerMs: staggerIndex * 140,
+    startWhen,
+  });
   const display =
     value >= 1000
       ? `${count.toLocaleString()}${suffix}`
       : `${count}${suffix}`;
   return (
-    <div ref={ref}>
-      <StatCard display={display} label={label} />
+    <div ref={ref} className="h-full">
+      <StatCard
+        display={display}
+        label={label}
+        variant={variant}
+        valueSettled={settled}
+      />
     </div>
   );
 }

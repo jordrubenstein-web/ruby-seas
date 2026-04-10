@@ -2,16 +2,29 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { NAV_LINKS } from "@/lib/constants";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { HOME_SCROLL_SPY_HREFS, NAV_LINKS } from "@/lib/constants";
+import { useLocationHash } from "@/hooks/useLocationHash";
+import { useHomeSectionSpy } from "@/hooks/useHomeSectionSpy";
+import { getEffectiveHomeSectionHref, isNavLinkActive } from "@/lib/nav-active";
 import { BrandLockup } from "./BrandLockup";
+import { HomeSectionLink } from "./HomeNavLink";
 import { MobileDrawer } from "./MobileDrawer";
+
+const SPY_COUNT = HOME_SCROLL_SPY_HREFS.length;
 
 export function Navbar() {
   const pathname = usePathname();
+  const hash = useLocationHash();
+  const spyHref = useHomeSectionSpy();
+  const effectiveSectionHref = getEffectiveHomeSectionHref(pathname, hash, spyHref);
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const navRef = useRef<HTMLElement | null>(null);
+  const spyLinkRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  const [underline, setUnderline] = useState({ left: 0, width: 0, visible: false });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -20,38 +33,93 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useLayoutEffect(() => {
+    if (!isHome || !effectiveSectionHref) {
+      setUnderline((u) => ({ ...u, visible: false }));
+      return;
+    }
+    const idx = (HOME_SCROLL_SPY_HREFS as readonly string[]).indexOf(effectiveSectionHref);
+    if (idx < 0 || !navRef.current) {
+      setUnderline((u) => ({ ...u, visible: false }));
+      return;
+    }
+    const wrap = spyLinkRefs.current[idx];
+    if (!wrap) return;
+    const nav = navRef.current;
+    const nr = nav.getBoundingClientRect();
+    const wr = wrap.getBoundingClientRect();
+    setUnderline({
+      left: wr.left - nr.left,
+      width: wr.width,
+      visible: true,
+    });
+  }, [isHome, effectiveSectionHref, hash, spyHref]);
+
   const solid = scrolled || !isHome;
 
   return (
     <>
       <header
-        className={`fixed top-0 z-40 w-full transition-colors duration-300 ${
-          solid
-            ? "border-b border-navy-800/50 bg-navy-900/95 shadow-lg backdrop-blur-md"
-            : "bg-transparent"
+        className={`fixed top-0 z-40 w-full border-b border-navy-800/45 bg-navy-950/[0.90] backdrop-blur-md transition-shadow duration-300 ${
+          solid ? "shadow-lg" : "shadow-md"
         }`}
       >
-        <div className="mx-auto flex max-w-content items-center justify-between px-4 py-3 sm:px-6 sm:py-3.5 lg:px-8">
-          <BrandLockup className="max-w-[min(100%,calc(100vw-11rem))] shrink transition-opacity hover:opacity-95 sm:max-w-none" />
+        <div className="mx-auto flex max-w-content items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-3.5 lg:gap-4 lg:px-8">
+          <BrandLockup className="max-w-[min(100%,12rem)] shrink-0 transition-opacity hover:opacity-95 sm:max-w-none sm:shrink" />
 
-          <nav className="hidden items-center gap-10 lg:flex">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-medium transition hover:text-seafoam-400 ${
-                  pathname === link.href ? "text-seafoam-400" : "text-slate-200"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+          <nav
+            ref={navRef}
+            className="relative hidden min-w-0 flex-1 items-end justify-center gap-x-5 gap-y-1 px-1 lg:flex xl:gap-x-7 2xl:gap-x-8"
+          >
+            {NAV_LINKS.map((link, i) => {
+              const active = isNavLinkActive(pathname, hash, link.href, effectiveSectionHref);
+              const cls = `whitespace-nowrap text-[13px] font-medium transition hover:text-seafoam-400 xl:text-sm ${
+                active ? "text-seafoam-400" : "text-slate-200"
+              }`;
+              const inner =
+                link.href.startsWith("/#") ? (
+                  <HomeSectionLink href={link.href as `/#${string}`} className={cls}>
+                    {link.label}
+                  </HomeSectionLink>
+                ) : (
+                  <Link href={link.href} className={cls}>
+                    {link.label}
+                  </Link>
+                );
+              if (i < SPY_COUNT) {
+                return (
+                  <span
+                    key={link.href}
+                    ref={(el) => {
+                      spyLinkRefs.current[i] = el;
+                    }}
+                    className="inline-flex shrink-0 justify-center pb-1"
+                  >
+                    {inner}
+                  </span>
+                );
+              }
+              return (
+                <span key={link.href} className="inline-flex shrink-0 pb-1">
+                  {inner}
+                </span>
+              );
+            })}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute bottom-0 z-10 h-0.5 rounded-full bg-seafoam-400 transition-[left,width,opacity] duration-300 ease-out"
+              style={{
+                left: underline.left,
+                width: underline.width,
+                opacity: underline.visible ? 1 : 0,
+              }}
+            />
           </nav>
 
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
             <Link
               href="/get-a-quote"
-              className="rounded-full bg-seafoam-500 px-3 py-2 text-xs font-semibold text-white shadow-lg shadow-seafoam-500/20 transition hover:bg-seafoam-600 sm:px-5 sm:py-2.5 sm:text-sm"
+              className="rounded-full bg-seafoam-500 px-2.5 py-1.5 text-[11px] font-semibold leading-none text-white shadow-md shadow-seafoam-500/15 transition hover:bg-seafoam-600 sm:px-3.5 sm:py-2 sm:text-xs"
             >
               Get a Quote
             </Link>

@@ -1,23 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/nav/Navbar";
 import { Footer } from "@/components/Footer";
 import { StickyQuoteBar } from "@/components/shared/StickyQuoteBar";
 import { SITE_NAME } from "@/lib/constants";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-montserrat",
-  weight: ["600", "700"],
-  display: "swap",
-});
+const googleFontsHref =
+  "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.rubyseas.com"),
@@ -26,7 +15,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Premium frozen seafood with EU/FDA compliance, MSC-certified fisheries, and global cold-chain reach from ocean to table.",
+    "Premium lobster and crab for foodservice and retail across North America — global infrastructure, proven sourcing, and cold-chain discipline.",
 };
 
 export default function RootLayout({
@@ -35,8 +24,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
-      <body className="min-h-screen pb-28 font-sans">
+    <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link href={googleFontsHref} rel="stylesheet" />
+      </head>
+      <body className="min-h-screen pb-20 font-sans md:pb-[4.5rem]">
         <Navbar />
         <main>{children}</main>
         <Footer />

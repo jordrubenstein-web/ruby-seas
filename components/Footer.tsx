@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HomeNavLink } from "@/components/nav/HomeNavLink";
 import { CONTACT, SITE_LOGO, SITE_NAME } from "@/lib/constants";
 
 export function Footer() {
@@ -8,7 +9,7 @@ export function Footer() {
       <div className="mx-auto max-w-content px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <Link href="/" className="inline-block max-w-full">
+            <HomeNavLink className="inline-block max-w-full">
               <Image
                 src={SITE_LOGO.src}
                 alt={SITE_LOGO.alt}
@@ -17,7 +18,7 @@ export function Footer() {
                 className="h-12 w-auto max-w-full object-contain object-left sm:h-14"
                 sizes="(max-width: 768px) 280px, 320px"
               />
-            </Link>
+            </HomeNavLink>
             <p className="mt-3 text-sm leading-relaxed text-slate-500">
               Integrity, transparency, and scale — global seafood supply across
               major trade lanes and cold-chain hubs.

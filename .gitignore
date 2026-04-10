@@ -32,3 +32,8 @@ yarn-error.log*
 # typescript
 next-env.d.ts
 *.tsbuildinfo
+
+# local npm / logs (do not publish)
+.npm-tarballs/
+npm-install-log.txt
+.npmrc

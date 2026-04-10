@@ -1,33 +1,23 @@
+import { HomeHashScroller } from "@/components/home/HomeHashScroller";
 import { HeroSection } from "@/components/home/HeroSection";
-
-export const dynamic = "force-dynamic";
-import { DualPathway } from "@/components/home/DualPathway";
-import { SectionWrapper } from "@/components/shared/SectionWrapper";
-import { StatsRibbon } from "@/components/home/StatsRibbon";
+import { SplashSection } from "@/components/home/SplashSection";
+import { WhoWeServe } from "@/components/home/WhoWeServe";
+import { ScaleStatsSection } from "@/components/home/ScaleStatsSection";
 import { ProductPreview } from "@/components/home/ProductPreview";
+import { WhyRubySeas } from "@/components/home/WhyRubySeas";
 import { GlobalMap } from "@/components/home/GlobalMap";
 import { CTABand } from "@/components/shared/CTABand";
 
 export default function HomePage() {
   return (
     <>
+      <HomeHashScroller />
+      <SplashSection />
       <HeroSection />
-      <DualPathway />
-      <section className="section-py bg-white">
-        <SectionWrapper>
-          <h2 className="text-center font-display text-3xl font-bold text-navy-900 md:text-4xl">
-            Scale you can measure
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-center text-slate-600">
-            Integrity, transparency, and operational throughput — verified
-            across shipments, ports, and partner programs.
-          </p>
-          <div className="mt-12">
-            <StatsRibbon />
-          </div>
-        </SectionWrapper>
-      </section>
+      <WhoWeServe />
+      <ScaleStatsSection />
       <ProductPreview />
+      <WhyRubySeas />
       <GlobalMap />
       <CTABand />
     </>

@@ -3,23 +3,30 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "20.x"
+    "node": ">=20"
   },
   "scripts": {
     "dev": "next dev",
+    "dev:clean": "rm -rf .next && next dev",
+    "logo:transparent": "python3 scripts/make-logo-transparent.py",
+    "logo:official": "python3 scripts/process-official-lockup.py",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
     "framer-motion": "^11.11.17",
+    "gsap": "^3.12.7",
     "leaflet": "^1.9.4",
     "next": "^15.5.15",
     "react-leaflet": "^4.2.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.2",
+    "three": "^0.170.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
@@ -28,6 +35,7 @@
     "@types/node": "^20.17.6",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "@types/three": "^0.170.0",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.39.4",
     "eslint-config-next": "^15.5.15",
