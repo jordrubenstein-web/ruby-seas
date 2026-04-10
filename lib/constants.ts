@@ -88,15 +88,15 @@ export const PRODUCT_CATEGORIES = [
   },
 ] as const;
 
-/** Equirectangular [lon, lat] — interactive global reach map. */
+/** WGS84 [lon, lat] — Leaflet / global reach map (centroids, with small spreads in dense regions). */
 export const GLOBAL_REACH_MARKERS = [
-  { id: "ca", name: "Canada", region: "North America", coordinates: [-96.0, 56.0] as const },
+  { id: "ca", name: "Canada", region: "North America", coordinates: [-106.35, 56.13] as const },
   { id: "us", name: "United States", region: "North America", coordinates: [-98.35, 39.5] as const },
-  { id: "mx", name: "Mexico", region: "North America", coordinates: [-102.0, 23.0] as const },
-  { id: "bs", name: "Bahamas", region: "Caribbean", coordinates: [-77.4, 25.0] as const },
-  { id: "tc", name: "Turks & Caicos", region: "Caribbean", coordinates: [-71.8, 21.8] as const },
-  { id: "cu", name: "Cuba", region: "Caribbean", coordinates: [-79.5, 21.5] as const },
-  { id: "jm", name: "Jamaica", region: "Caribbean", coordinates: [-77.5, 18.1] as const },
+  { id: "mx", name: "Mexico", region: "North America", coordinates: [-102.55, 23.63] as const },
+  { id: "bs", name: "Bahamas", region: "Caribbean", coordinates: [-77.35, 25.05] as const },
+  { id: "tc", name: "Turks & Caicos", region: "Caribbean", coordinates: [-71.75, 21.75] as const },
+  { id: "cu", name: "Cuba", region: "Caribbean", coordinates: [-79.0, 21.7] as const },
+  { id: "jm", name: "Jamaica", region: "Caribbean", coordinates: [-77.3, 18.05] as const },
   { id: "ni", name: "Nicaragua", region: "Central America", coordinates: [-85.2, 12.9] as const },
   { id: "cr", name: "Costa Rica", region: "Central America", coordinates: [-84.1, 9.7] as const },
   { id: "pa", name: "Panama", region: "Central America", coordinates: [-80.0, 8.5] as const },
