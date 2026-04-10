@@ -58,14 +58,14 @@ export function GlobalMap() {
       </div>
 
       <div className="relative mx-auto max-w-content px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl rounded-2xl border border-white/10 bg-navy-950 px-5 py-5 shadow-lg sm:px-6 sm:py-6">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-seafoam-400">
+        <div className="max-w-3xl rounded-2xl border border-white/25 bg-[#050B14] px-5 py-5 shadow-[0_8px_32px_rgb(0_0_0/0.55)] ring-1 ring-black/30 sm:px-6 sm:py-6">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-seafoam-400 [text-shadow:0_1px_2px_rgb(0_0_0/0.9)]">
             Network
           </p>
-          <h2 className="mt-2 font-display text-3xl font-bold text-white md:text-4xl">
+          <h2 className="mt-2 font-display text-3xl font-bold text-white [text-shadow:0_2px_8px_rgb(0_0_0/0.85)] md:text-4xl">
             Our reach is global
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-slate-100">
+          <p className="mt-4 text-lg font-medium leading-relaxed text-white/95 [text-shadow:0_1px_3px_rgb(0_0_0/0.9)]">
             Operational presence across key seafood markets — customers and
             suppliers in every region we serve. Zoom in to see location names;
             click a marker to focus.
