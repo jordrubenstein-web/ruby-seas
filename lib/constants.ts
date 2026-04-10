@@ -1,19 +1,19 @@
 export const SITE_NAME = "Ruby Seas International";
 
-/** Full wordmark + emblem (see `public/ruby-seas-logo.png`). Footer / print use. */
+/** Full-color wordmark + emblem, transparent PNG — footer and light backgrounds. */
 export const SITE_LOGO = {
   src: "/ruby-seas-logo.png",
   alt: "Ruby Seas International Inc.",
-  width: 1024,
-  height: 559,
+  width: 854,
+  height: 268,
 } as const;
 
-/** Circular fish/globe mark — white on transparent (`public/ruby-seas-emblem-white.png`). */
-export const SITE_EMBLEM = {
-  src: "/ruby-seas-emblem-white.png",
-  alt: "",
-  width: 323,
-  height: 370,
+/** White silhouette of full lockup for dark / transparent navbar (same aspect as `SITE_LOGO`). */
+export const SITE_LOCKUP_WHITE = {
+  src: "/ruby-seas-lockup-white.png",
+  alt: "Ruby Seas International Inc.",
+  width: 854,
+  height: 268,
 } as const;
 
 /** Aerial ocean surface — scenic B-roll (Pexels #3045163). Override with `NEXT_PUBLIC_HERO_VIDEO_URL`. */
