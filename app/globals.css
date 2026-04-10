@@ -20,34 +20,6 @@ body {
   @apply bg-pearl text-slate-700 antialiased;
 }
 
-/* Leaflet global reach — full bleed inside aspect box, readable labels */
-.global-reach-map.leaflet-container {
-  @apply rounded-[inherit] bg-navy-950;
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-}
-
-.global-reach-map .leaflet-control-attribution {
-  @apply rounded-md border border-white/10 bg-navy-950/90 px-2 py-1 text-[10px] text-slate-400 shadow-sm backdrop-blur-sm;
-}
-
-.global-reach-map .leaflet-control-attribution a {
-  @apply text-seafoam-400 underline-offset-2 hover:text-seafoam-300;
-}
-
-.global-reach-map .global-reach-marker-tip {
-  @apply rounded-md border border-white/20 bg-navy-950 px-2 py-1 text-[11px] font-semibold text-white shadow-md;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 0.35);
-}
-
-.global-reach-map .leaflet-tooltip-top.global-reach-marker-tip::before {
-  border-top-color: rgb(15 23 42 / 0.98);
-}
-
-.global-reach-map-shell .global-reach-map.leaflet-container {
-  height: 100%;
-  width: 100%;
-}
-
 @layer utilities {
   .section-py {
     padding-top: var(--section-py);
