@@ -25,4 +25,17 @@ body {
     padding-top: var(--section-py);
     padding-bottom: var(--section-py);
   }
+
+  .animate-global-map-grid {
+    animation: global-map-grid 24s linear infinite;
+  }
+}
+
+@keyframes global-map-grid {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 48px 48px;
+  }
 }

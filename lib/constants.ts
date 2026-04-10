@@ -35,7 +35,6 @@ export const HERO_SEA_TEXTURE = "/header-sea-texture.jpg";
 
 export const NAV_LINKS = [
   { href: "/products", label: "Products" },
-  { href: "/traceability", label: "Traceability" },
   { href: "/about", label: "About" },
 ] as const;
 
@@ -89,59 +88,34 @@ export const PRODUCT_CATEGORIES = [
   },
 ] as const;
 
-export const TRACEABILITY_STEPS = [
-  {
-    title: "Harvest",
-    description: "Diver-caught from sustainable fisheries",
-  },
-  {
-    title: "Process",
-    description: "Single-frozen at our Bahamas facility. No chemicals.",
-  },
-  {
-    title: "Certify",
-    description: "MSC chain-of-custody verified",
-  },
-  {
-    title: "Ship",
-    description: "Cold-chain monitored across 42 ports",
-  },
-  {
-    title: "Scan",
-    description:
-      "QR code on every retail package — know exactly where your seafood came from",
-  },
-] as const;
-
-export const LOCATIONS = [
-  {
-    id: "toronto",
-    name: "Toronto, ON",
-    role: "Global HQ & Cold Chain",
-    x: 28,
-    y: 32,
-  },
-  {
-    id: "buffalo",
-    name: "Buffalo, NY",
-    role: "US Distribution Hub",
-    x: 26,
-    y: 35,
-  },
-  {
-    id: "miami",
-    name: "Southeast US",
-    role: "Regional Operations",
-    x: 25,
-    y: 48,
-  },
-  {
-    id: "bahamas",
-    name: "Abaco, Bahamas",
-    role: "Processing Facility",
-    x: 27,
-    y: 52,
-  },
+/** Equirectangular [lon, lat] — interactive global reach map. */
+export const GLOBAL_REACH_MARKERS = [
+  { id: "ca", name: "Canada", region: "North America", coordinates: [-96.0, 56.0] as const },
+  { id: "us", name: "United States", region: "North America", coordinates: [-98.35, 39.5] as const },
+  { id: "mx", name: "Mexico", region: "North America", coordinates: [-102.0, 23.0] as const },
+  { id: "bs", name: "Bahamas", region: "Caribbean", coordinates: [-77.4, 25.0] as const },
+  { id: "tc", name: "Turks & Caicos", region: "Caribbean", coordinates: [-71.8, 21.8] as const },
+  { id: "cu", name: "Cuba", region: "Caribbean", coordinates: [-79.5, 21.5] as const },
+  { id: "jm", name: "Jamaica", region: "Caribbean", coordinates: [-77.5, 18.1] as const },
+  { id: "ni", name: "Nicaragua", region: "Central America", coordinates: [-85.2, 12.9] as const },
+  { id: "cr", name: "Costa Rica", region: "Central America", coordinates: [-84.1, 9.7] as const },
+  { id: "pa", name: "Panama", region: "Central America", coordinates: [-80.0, 8.5] as const },
+  { id: "co", name: "Colombia", region: "South America", coordinates: [-74.3, 4.6] as const },
+  { id: "ec", name: "Ecuador", region: "South America", coordinates: [-78.2, -1.8] as const },
+  { id: "pe", name: "Peru", region: "South America", coordinates: [-75.0, -9.2] as const },
+  { id: "br", name: "Brazil", region: "South America", coordinates: [-51.9, -14.2] as const },
+  { id: "cl", name: "Chile", region: "South America", coordinates: [-71.5, -35.7] as const },
+  { id: "fr", name: "France", region: "Europe", coordinates: [2.35, 46.5] as const },
+  { id: "es", name: "Spain", region: "Europe", coordinates: [-3.75, 40.4] as const },
+  { id: "il", name: "Israel", region: "Middle East", coordinates: [34.85, 31.05] as const },
+  { id: "ae", name: "Dubai", region: "Middle East", coordinates: [55.27, 25.2] as const },
+  { id: "in", name: "India", region: "Asia", coordinates: [78.96, 22.0] as const },
+  { id: "cn", name: "China", region: "Asia", coordinates: [104.2, 35.0] as const },
+  { id: "hk", name: "Hong Kong", region: "Asia", coordinates: [114.17, 22.32] as const },
+  { id: "vn", name: "Vietnam", region: "Asia", coordinates: [108.3, 14.1] as const },
+  { id: "ph", name: "Philippines", region: "Asia", coordinates: [122.0, 12.9] as const },
+  { id: "id", name: "Indonesia", region: "Asia", coordinates: [113.9, -2.5] as const },
+  { id: "nz", name: "New Zealand", region: "Oceania", coordinates: [172.0, -41.3] as const },
 ] as const;
 
 export const CONTACT = {

@@ -19,8 +19,8 @@ export function Footer() {
               />
             </Link>
             <p className="mt-3 text-sm leading-relaxed text-slate-500">
-              Integrity, transparency, and scale — global seafood supply with
-              verified traceability.
+              Integrity, transparency, and scale — global seafood supply across
+              major trade lanes and cold-chain hubs.
             </p>
           </div>
           <div>
@@ -66,8 +66,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/traceability" className="text-slate-600 hover:text-seafoam-600">
-                  Traceability
+                <Link href="/#global-reach" className="text-slate-600 hover:text-seafoam-600">
+                  Global reach
                 </Link>
               </li>
               <li>

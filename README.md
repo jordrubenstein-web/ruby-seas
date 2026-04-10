@@ -21,8 +21,8 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Structure
 
-- `app/` — routes: `/`, `/products`, `/traceability`, `/about`, `/get-a-quote`
-- `components/` — UI by section (nav, home, products, traceability, about, quote, shared)
+- `app/` — routes: `/`, `/products`, `/about`, `/get-a-quote`
+- `components/` — UI by section (nav, home, products, about, quote, shared)
 - `lib/` — copy data, motion variants
 - `hooks/` — `useCountUp` for stats animation
 

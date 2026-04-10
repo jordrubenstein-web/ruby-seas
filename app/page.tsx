@@ -3,7 +3,6 @@ import { DualPathway } from "@/components/home/DualPathway";
 import { SectionWrapper } from "@/components/shared/SectionWrapper";
 import { StatsRibbon } from "@/components/home/StatsRibbon";
 import { ProductPreview } from "@/components/home/ProductPreview";
-import { TraceabilityTeaser } from "@/components/home/TraceabilityTeaser";
 import { GlobalMap } from "@/components/home/GlobalMap";
 import { CTABand } from "@/components/shared/CTABand";
 
@@ -27,7 +26,6 @@ export default function HomePage() {
         </SectionWrapper>
       </section>
       <ProductPreview />
-      <TraceabilityTeaser />
       <GlobalMap />
       <CTABand />
     </>

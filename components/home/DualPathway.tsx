@@ -48,8 +48,8 @@ export function DualPathway() {
                 I&apos;m a Retailer
               </h3>
               <p className="mt-2 max-w-sm text-sm text-slate-300">
-                Ruby Seas & Rubymar brands, QR traceability, and shelf-ready
-                SKUs.
+                Ruby Seas & Rubymar brands and shelf-ready SKUs built for
+                retail velocity.
               </p>
               <span className="mt-4 inline-flex items-center text-sm font-semibold text-seafoam-400">
                 View retail assortment →

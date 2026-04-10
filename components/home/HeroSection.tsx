@@ -115,8 +115,8 @@ export function HeroSection() {
             className="mt-6 max-w-2xl text-lg text-white/95 drop-shadow-[0_1px_8px_rgba(0,0,0,0.35)]"
           >
             Ruby Seas supplies 190+ premium seafood products to 145 partners
-            across 42 ports worldwide — with full-chain traceability you can
-            scan.
+            across 42 ports worldwide — with EU/FDA-aligned supply discipline
+            and cold-chain you can rely on.
           </motion.p>
           <motion.div
             variants={fadeUp}

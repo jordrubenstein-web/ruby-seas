@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Premium frozen seafood with EU/FDA compliance, MSC-certified fisheries, and QR traceability from ocean to table.",
+    "Premium frozen seafood with EU/FDA compliance, MSC-certified fisheries, and global cold-chain reach from ocean to table.",
 };
 
 export default function RootLayout({
