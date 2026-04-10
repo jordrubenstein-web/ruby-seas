@@ -31,7 +31,7 @@ export function HeroSection() {
       <div className="absolute inset-0">
         {showVideo ? (
           <video
-            className="absolute inset-0 h-full w-full scale-[1.02] object-cover"
+            className="absolute inset-0 h-full w-full scale-[1.02] object-cover [filter:brightness(1.14)_saturate(1.12)_contrast(1.02)]"
             autoPlay
             muted
             playsInline
@@ -63,7 +63,7 @@ export function HeroSection() {
             sizes="100vw"
           />
         )}
-        <div className="pointer-events-none absolute inset-0 opacity-[0.14] mix-blend-soft-light">
+        <div className="pointer-events-none absolute inset-0 opacity-[0.22] mix-blend-soft-light">
           <Image
             src={HERO_SEA_TEXTURE}
             alt=""
@@ -73,8 +73,10 @@ export function HeroSection() {
             aria-hidden
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-br from-navy-950/92 via-navy-900/78 to-navy-900/55" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_40%,transparent_20%,rgba(15,23,42,0.55)_100%)]" />
+        {/* Brighter ocean scrim — lets more water color through while keeping contrast for type */}
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-900/45 via-cyan-950/38 to-sky-950/32" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-900/50 via-transparent to-cyan-200/20" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_65%_at_72%_38%,transparent_25%,rgba(8,47,73,0.38)_100%)]" />
       </div>
 
       <div className="relative mx-auto flex min-h-[100svh] max-w-content flex-col justify-center px-4 pb-32 pt-28 sm:px-6 lg:px-8 lg:pb-24 lg:pt-32">
@@ -89,21 +91,23 @@ export function HeroSection() {
         >
           <motion.p
             variants={fadeUp}
-            className="text-sm font-semibold uppercase tracking-[0.2em] text-seafoam-400"
+            className="text-sm font-semibold uppercase tracking-[0.2em] text-seafoam-400 drop-shadow-[0_1px_6px_rgba(0,0,0,0.35)]"
           >
             Global seafood enterprise
           </motion.p>
           <motion.h1
             variants={fadeUp}
-            className="font-display text-[clamp(1.75rem,4vw,3.5rem)] font-bold leading-tight tracking-tight text-white drop-shadow-sm"
+            className="font-display text-[clamp(1.75rem,4vw,3.5rem)] font-bold leading-tight tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.45)]"
           >
             From Ocean to Table.
             <br />
-            <span className="text-seafoam-400">Verified at Every Mile.</span>
+            <span className="text-seafoam-400 drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]">
+              Verified at Every Mile.
+            </span>
           </motion.h1>
           <motion.p
             variants={fadeUp}
-            className="mt-6 max-w-2xl text-lg text-slate-200/90 drop-shadow-sm"
+            className="mt-6 max-w-2xl text-lg text-white/95 drop-shadow-[0_1px_8px_rgba(0,0,0,0.35)]"
           >
             Ruby Seas supplies 190+ premium seafood products to 145 partners
             across 42 ports worldwide — with full-chain traceability you can
