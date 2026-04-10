@@ -9,7 +9,7 @@ const ReachMap = dynamic(() => import("./ReachMap").then((m) => m.ReachMap), {
   ssr: false,
   loading: () => (
     <div
-      className="flex min-h-[320px] w-full items-center justify-center rounded-xl bg-navy-950/90 text-sm text-slate-500 md:min-h-[420px]"
+      className="flex min-h-[320px] w-full items-center justify-center rounded-xl bg-navy-950 text-sm text-slate-400 md:min-h-[420px]"
       aria-busy
       aria-label="Loading map"
     >
@@ -40,7 +40,13 @@ export function GlobalMap() {
           sizes="100vw"
           priority={false}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-950/96 via-navy-900/94 to-navy-950/[0.97]" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(5,11,20,0.97), rgba(10,22,40,0.95), rgba(5,11,20,0.98))",
+          }}
+        />
         <div
           className="animate-global-map-grid absolute inset-0 opacity-[0.055]"
           style={{
@@ -52,14 +58,14 @@ export function GlobalMap() {
       </div>
 
       <div className="relative mx-auto max-w-content px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl rounded-2xl border border-white/10 bg-navy-950/82 px-5 py-5 shadow-lg backdrop-blur-sm sm:px-6 sm:py-6">
+        <div className="max-w-3xl rounded-2xl border border-white/10 bg-navy-950 px-5 py-5 shadow-lg sm:px-6 sm:py-6">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-seafoam-400">
             Network
           </p>
           <h2 className="mt-2 font-display text-3xl font-bold text-white md:text-4xl">
             Our reach is global
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-slate-200">
+          <p className="mt-4 text-lg leading-relaxed text-slate-100">
             Operational presence across key seafood markets — customers and
             suppliers in every region we serve. Zoom in to see location names;
             click a marker to focus.
