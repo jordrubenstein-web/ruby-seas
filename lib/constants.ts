@@ -73,8 +73,8 @@ export const PRODUCT_CATEGORIES = [
       "Retail-ready seafood mixes, tempuras, lobster crepes, paella kits, and 30+ SKUs designed for grab-and-go margins.",
     badge: "Retail Ready",
     image:
-      "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80",
-    imageAlt: "Prepared seafood dishes",
+      "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800&q=80",
+    imageAlt: "Grilled salmon with herbs — retail-ready seafood meal",
   },
   {
     id: "lobster",
