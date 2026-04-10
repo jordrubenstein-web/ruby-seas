@@ -12,7 +12,7 @@ export const SITE_LOGO = {
 export const SITE_EMBLEM = {
   src: "/ruby-seas-emblem-white.png",
   alt: "",
-  width: 405,
+  width: 323,
   height: 370,
 } as const;
 
