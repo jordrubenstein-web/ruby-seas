@@ -88,19 +88,21 @@ export const WHY_RUBY_SEAS_POSTER_IMAGE = HERO_POSTER_IMAGE;
 /** Home sections that participate in scroll-spy + hash nav (order = page order). */
 export const HOME_SCROLL_SPY_HREFS = [
   "/#site-splash",
-  "/#who-we-serve",
-  "/#scale-stats",
-  "/#core-products",
-  "/#why-ruby-seas",
+  "/#who-we-serve-focus",
+  "/#scale-stats-focus",
+  "/#core-products-focus",
+  "/#why-ruby-seas-focus",
+  "/#global-reach-focus",
 ] as const;
 
 export const NAV_LINKS = [
   { href: "/#site-splash", label: "Home" },
-  { href: "/#who-we-serve", label: "Who we serve" },
-  { href: "/#scale-stats", label: "Scale you can measure" },
-  { href: "/#core-products", label: "Products" },
-  { href: "/#why-ruby-seas", label: "Why Ruby Seas" },
-  { href: "/foodservice", label: "Foodservice" },
+  { href: "/#who-we-serve-focus", label: "Who" },
+  { href: "/#scale-stats-focus", label: "Scale" },
+  { href: "/#core-products-focus", label: "Products" },
+  { href: "/#why-ruby-seas-focus", label: "Why" },
+  { href: "/#global-reach-focus", label: "Our Reach" },
+  { href: "/foodservice", label: "Distributor" },
   { href: "/retail", label: "Retail" },
   { href: "/about", label: "About" },
 ] as const;

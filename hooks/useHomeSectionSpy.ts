@@ -4,19 +4,28 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { HOME_SCROLL_SPY_HREFS } from "@/lib/constants";
 
-/** Viewport line from top: sticky header + small offset (px). */
-const HEADER_ANCHOR_OFFSET = 92;
+/** ~Fixed header; aligns with scroll-margin / nav height. */
+const HEADER_BAND_PX = 96;
+
+/**
+ * An anchor “counts” when its top is at or above this line from the viewport top.
+ * Using only `top <= ~104px` (equivalent to `scrollY + tinyOffset`) lags one section:
+ * the next heading can fill the screen while the previous tab stays active.
+ */
+function activationLinePx(): number {
+  const thresholdPx = Math.min(Math.max(window.innerHeight * 0.38, 280), 520);
+  return HEADER_BAND_PX + thresholdPx;
+}
 
 function computeActiveSpyHref(): (typeof HOME_SCROLL_SPY_HREFS)[number] {
-  const y = window.scrollY + HEADER_ANCHOR_OFFSET;
+  const line = activationLinePx();
   let active: (typeof HOME_SCROLL_SPY_HREFS)[number] = HOME_SCROLL_SPY_HREFS[0];
   for (const href of HOME_SCROLL_SPY_HREFS) {
     const id = href.slice(2);
     const el = document.getElementById(id);
     if (!el) continue;
-    const top = el.getBoundingClientRect().top + window.scrollY;
-    if (top <= y) active = href;
-    else break;
+    const top = el.getBoundingClientRect().top;
+    if (top <= line) active = href;
   }
   return active;
 }

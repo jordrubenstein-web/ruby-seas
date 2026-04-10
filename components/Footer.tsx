@@ -67,7 +67,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#global-reach" className="text-slate-600 hover:text-seafoam-600">
+                <Link href="/#global-reach-focus" className="text-slate-600 hover:text-seafoam-600">
                   Global reach
                 </Link>
               </li>

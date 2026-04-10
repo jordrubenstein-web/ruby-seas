@@ -23,8 +23,7 @@ export function WhyRubySeas() {
 
   return (
     <motion.section
-      id="why-ruby-seas"
-      className="section-py relative scroll-mt-28 overflow-hidden"
+      className="section-py relative overflow-hidden"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSection}
@@ -70,7 +69,10 @@ export function WhyRubySeas() {
           variants={fadeUp}
         >
           <div className="rounded-2xl border border-white/75 bg-white/85 p-6 text-center shadow-lg shadow-navy-900/10 backdrop-blur-md ring-1 ring-navy-900/10 sm:p-8">
-            <h2 className="font-display text-3xl font-bold tracking-tight text-navy-950 md:text-4xl">
+            <h2
+              id="why-ruby-seas-focus"
+              className="font-display scroll-mt-28 text-3xl font-bold tracking-tight text-navy-950 md:text-4xl"
+            >
               Why Ruby Seas
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-base font-semibold leading-relaxed text-navy-800 md:text-lg">

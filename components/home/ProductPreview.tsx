@@ -8,7 +8,7 @@ import { fadeUp, productCard, viewportOnce } from "@/lib/animations";
 
 export function ProductPreview() {
   return (
-    <section id="core-products" className="section-py scroll-mt-28 bg-pearl">
+    <section className="section-py bg-pearl">
       <motion.div
         className="mx-auto max-w-content px-4 sm:px-6 lg:px-8"
         initial="hidden"
@@ -25,7 +25,10 @@ export function ProductPreview() {
         }}
       >
         <motion.div variants={fadeUp} className="text-center">
-          <h2 className="font-display text-3xl font-bold text-navy-900 md:text-4xl">
+          <h2
+            id="core-products-focus"
+            className="font-display scroll-mt-28 text-3xl font-bold text-navy-900 md:text-4xl"
+          >
             Core Products
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-slate-600">

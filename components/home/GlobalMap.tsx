@@ -21,10 +21,7 @@ export function GlobalMap() {
   const hubCount = GLOBAL_REACH_LOCATIONS.length;
 
   return (
-    <section
-      id="global-reach"
-      className="relative overflow-hidden section-py bg-pearl"
-    >
+    <section className="relative overflow-hidden section-py bg-pearl">
       <div className="pointer-events-none absolute inset-0">
         <Image
           src={OCEAN_BACKDROP}
@@ -53,11 +50,12 @@ export function GlobalMap() {
 
       <div className="relative mx-auto max-w-content px-4 sm:px-6 lg:px-8">
         <motion.div
+          id="global-reach-focus"
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={fadeUp}
-          className="text-center"
+          className="scroll-mt-28 text-center"
         >
           <h2 className="font-display text-3xl font-bold text-navy-900 md:text-4xl">
             Our Global Reach

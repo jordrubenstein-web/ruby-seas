@@ -29,9 +29,6 @@ export function isNavLinkActive(
   if (href === "/#site-splash") {
     return pathname === "/" && (hash === "" || hash === "#site-splash");
   }
-  if (href === "/#core-products") {
-    return pathname === "/" && hash === "#core-products";
-  }
   if (href.startsWith("/#")) {
     return pathname === "/" && hash === href.slice(1);
   }

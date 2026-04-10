@@ -69,11 +69,11 @@ export function Navbar() {
 
           <nav
             ref={navRef}
-            className="relative hidden min-w-0 flex-1 items-end justify-center gap-x-5 gap-y-1 px-1 lg:flex xl:gap-x-7 2xl:gap-x-8"
+            className="relative hidden min-w-0 flex-1 items-end justify-center gap-x-4 gap-y-1 px-1 sm:gap-x-5 lg:flex lg:gap-x-5 xl:gap-x-6 2xl:gap-x-8"
           >
             {NAV_LINKS.map((link, i) => {
               const active = isNavLinkActive(pathname, hash, link.href, effectiveSectionHref);
-              const cls = `whitespace-nowrap text-[13px] font-medium transition hover:text-seafoam-400 xl:text-sm ${
+              const cls = `whitespace-nowrap text-[12px] font-medium tracking-tight transition hover:text-seafoam-400 sm:text-[13px] xl:text-sm ${
                 active ? "text-seafoam-400" : "text-slate-200"
               }`;
               const inner =

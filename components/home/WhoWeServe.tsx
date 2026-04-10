@@ -11,15 +11,17 @@ const retailImg = "/home/dual-retail.jpg";
 export function WhoWeServe() {
   return (
     <motion.section
-      id="who-we-serve"
-      className="relative scroll-mt-28 bg-navy-900"
+      className="relative bg-navy-900"
       initial="hidden"
       whileInView="visible"
       viewport={viewportOnce}
       variants={fadeUp}
     >
       <div className="mx-auto max-w-content px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-        <h2 className="font-display text-center text-2xl font-bold text-white md:text-3xl">
+        <h2
+          id="who-we-serve-focus"
+          className="font-display scroll-mt-28 text-center text-2xl font-bold text-white md:text-3xl"
+        >
           Who We Serve
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-center text-slate-400">

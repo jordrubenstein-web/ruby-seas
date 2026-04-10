@@ -37,11 +37,7 @@ export function ScaleStatsSection() {
   const statsOpacity = useTransform(scrollYProgress, [0.06, 0.22], [0.35, 1]);
 
   return (
-    <section
-      id="scale-stats"
-      ref={sectionRef}
-      className="section-py relative scroll-mt-28 overflow-hidden"
-    >
+    <section ref={sectionRef} className="section-py relative overflow-hidden">
       <motion.div
         className="absolute inset-0 origin-center will-change-transform"
         style={{ scale: videoScale, y: videoY }}
@@ -66,7 +62,8 @@ export function ScaleStatsSection() {
       />
 
       <motion.div
-        className="relative z-10 mx-auto max-w-content px-4 sm:px-6 lg:px-8"
+        id="scale-stats-focus"
+        className="relative z-10 mx-auto max-w-content scroll-mt-28 px-4 sm:px-6 lg:px-8"
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
