@@ -1,17 +1,21 @@
 "use client";
 
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
+import L from "leaflet";
 import {
   CircleMarker,
   MapContainer,
+  Marker,
+  Polyline,
   TileLayer,
-  Tooltip,
   useMap,
   useMapEvents,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import {
   GLOBAL_REACH_LOCATIONS,
+  hubPosition,
+  labelPosition,
   type GlobalReachLocation,
 } from "@/lib/globalReachLocations";
 
@@ -27,6 +31,14 @@ const dotStyle = {
   weight: 1.5,
   fillOpacity: 0.92,
 } as const;
+
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
 
 const ReachMapZoomContext = createContext(false);
 
@@ -53,26 +65,54 @@ function HubMarker({ loc }: { loc: GlobalReachLocation }) {
   const [hovered, setHovered] = useState(false);
 
   const radius = hovered ? DOT_RADIUS_HOVER : DOT_RADIUS;
+  const hub = hubPosition(loc);
+  const label = labelPosition(loc);
 
-  const tooltipClass = `reach-map-tooltip${showLabels ? " reach-map-tooltip--visible" : ""}`;
+  const labelIcon = useMemo(
+    () =>
+      L.divIcon({
+        className: "reach-map-label-marker",
+        html: `<div class="reach-map-label${showLabels ? " reach-map-label--visible" : ""}">${escapeHtml(loc.name)}</div>`,
+        iconSize: [1, 1],
+        iconAnchor: [0, 0],
+      }),
+    [loc.name, showLabels],
+  );
+
+  const lineOpacity = showLabels ? 1 : 0;
 
   return (
-    <CircleMarker
-      center={[loc.lat, loc.lng]}
-      radius={radius}
-      pathOptions={dotStyle}
-      eventHandlers={{
-        click: () => {
-          map.flyTo([loc.lat, loc.lng], FLY_TO_ZOOM, { duration: FLY_DURATION });
-        },
-        mouseover: () => setHovered(true),
-        mouseout: () => setHovered(false),
-      }}
-    >
-      <Tooltip permanent direction="top" offset={[0, -6]} className={tooltipClass}>
-        {loc.name}
-      </Tooltip>
-    </CircleMarker>
+    <>
+      <CircleMarker
+        center={hub}
+        radius={radius}
+        pathOptions={dotStyle}
+        eventHandlers={{
+          click: () => {
+            map.flyTo(hub, FLY_TO_ZOOM, { duration: FLY_DURATION });
+          },
+          mouseover: () => setHovered(true),
+          mouseout: () => setHovered(false),
+        }}
+      />
+      <Polyline
+        positions={[hub, label]}
+        pathOptions={{
+          color: "rgba(148, 163, 184, 0.85)",
+          weight: 1,
+          lineCap: "round",
+          lineJoin: "round",
+          opacity: lineOpacity,
+        }}
+      />
+      <Marker
+        position={label}
+        icon={labelIcon}
+        interactive={false}
+        keyboard={false}
+        pane="markerPane"
+      />
+    </>
   );
 }
 
@@ -88,8 +128,9 @@ export function ReachMap() {
       style={{ height: "100%", width: "100%" }}
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+        subdomains="abcd"
       />
       <ZoomSync>
         {GLOBAL_REACH_LOCATIONS.map((loc) => (
