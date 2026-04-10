@@ -20,6 +20,44 @@ body {
   @apply bg-pearl text-slate-700 antialiased;
 }
 
+/* Global Reach — react-leaflet (OSM) */
+.reach-map-container.leaflet-container {
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  background: rgb(15 23 42);
+}
+
+.reach-map-container .leaflet-control-zoom a {
+  @apply border border-white/15 bg-navy-950/95 text-slate-200;
+}
+
+.reach-map-container .leaflet-control-zoom a:hover {
+  @apply bg-navy-800 text-white;
+}
+
+.reach-map-container .leaflet-control-attribution {
+  @apply max-w-[min(100%,24rem)] rounded-md bg-white/90 px-2 py-0.5 text-[10px] leading-snug text-slate-600 shadow-sm;
+}
+
+.reach-map-container .leaflet-control-attribution a {
+  @apply text-seafoam-600 underline-offset-2 hover:text-seafoam-500;
+}
+
+.reach-map-tooltip {
+  @apply rounded border border-slate-600/40 bg-navy-950 px-2 py-0.5 text-center text-[11px] font-medium text-white shadow-md;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none !important;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.35);
+}
+
+.reach-map-tooltip--visible {
+  opacity: 1;
+}
+
+.reach-map-container .leaflet-tooltip-top.reach-map-tooltip::before {
+  border-top-color: rgb(15 23 42 / 0.98);
+}
+
 @layer utilities {
   .section-py {
     padding-top: var(--section-py);

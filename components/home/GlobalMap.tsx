@@ -1,8 +1,22 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeUp, viewportOnce } from "@/lib/animations";
+
+const ReachMap = dynamic(() => import("./ReachMap").then((m) => m.ReachMap), {
+  ssr: false,
+  loading: () => (
+    <div
+      className="flex min-h-[320px] w-full items-center justify-center rounded-xl bg-navy-950/90 text-sm text-slate-500 md:min-h-[420px]"
+      aria-busy
+      aria-label="Loading map"
+    >
+      Loading map…
+    </div>
+  ),
+});
 
 const OCEAN_BACKDROP =
   "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&q=80";
@@ -47,20 +61,16 @@ export function GlobalMap() {
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-slate-200">
             Operational presence across key seafood markets — customers and
-            suppliers in every region we serve.
+            suppliers in every region we serve. Zoom in to see location names;
+            click a marker to focus.
           </p>
         </div>
 
         <div className="mt-10">
-          <div className="relative overflow-hidden rounded-2xl border border-dashed border-white/20 bg-navy-900/40 shadow-lg backdrop-blur-sm">
+          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-navy-900/50 shadow-lg backdrop-blur-sm">
             <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/[0.06]" />
-            <div className="flex min-h-[320px] w-full flex-col items-center justify-center gap-3 px-6 py-16 text-center md:min-h-[420px]">
-              <p className="text-sm font-semibold uppercase tracking-widest text-seafoam-400">
-                Global reach
-              </p>
-              <p className="max-w-md text-base text-slate-300">
-                Map and regional visualization will go here.
-              </p>
+            <div className="relative z-0 h-[320px] min-h-[320px] w-full md:h-[420px] md:min-h-[420px]">
+              <ReachMap />
             </div>
           </div>
         </div>

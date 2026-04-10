@@ -10,6 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         navy: {
+          950: "#050B14",
           900: "#0A1628",
           800: "#0F2341",
           700: "#163056",
