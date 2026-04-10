@@ -34,14 +34,14 @@ export function Navbar() {
         <div className="mx-auto flex max-w-content items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <Link
             href="/"
-            className="group relative flex shrink-0 items-center rounded-lg bg-white/95 px-2 py-1 shadow-sm ring-1 ring-white/20 transition hover:bg-white"
+            className="group relative flex shrink-0 items-center py-1 transition-opacity hover:opacity-95"
           >
             <Image
               src={SITE_LOGO.src}
               alt={SITE_LOGO.alt}
               width={SITE_LOGO.width}
               height={SITE_LOGO.height}
-              className="h-8 w-auto max-h-9 max-w-[min(100vw-8rem,220px)] object-contain object-left sm:h-9 sm:max-h-10 sm:max-w-[260px]"
+              className="h-8 w-auto max-h-9 max-w-[min(100vw-8rem,220px)] object-contain object-left mix-blend-multiply brightness-[1.03] contrast-[1.12] sm:h-9 sm:max-h-10 sm:max-w-[260px] [filter:drop-shadow(0_2px_14px_rgba(0,0,0,0.35))]"
               sizes="(max-width: 640px) 200px, 260px"
               priority
             />

@@ -8,6 +8,15 @@ export const SITE_LOGO = {
   height: 559,
 } as const;
 
+/** Aerial ocean surface — scenic B-roll (Pexels #3045163). Override with `NEXT_PUBLIC_HERO_VIDEO_URL`. */
+export const DEFAULT_HERO_VIDEO = {
+  hd: "https://videos.pexels.com/video-files/3045163/3045163-hd_1920_1080_25fps.mp4",
+  sd: "https://videos.pexels.com/video-files/3045163/3045163-sd_640_360_25fps.mp4",
+} as const;
+
+export const HERO_POSTER_IMAGE =
+  "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=85";
+
 export const NAV_LINKS = [
   { href: "/products", label: "Products" },
   { href: "/traceability", label: "Traceability" },

@@ -29,14 +29,14 @@ export function MobileDrawer({ open, onClose }: Props) {
           <Link
             href="/"
             onClick={onClose}
-            className="min-w-0 flex-1 rounded-lg bg-white/95 px-2 py-1.5 ring-1 ring-white/10"
+            className="min-w-0 flex-1 py-1"
           >
             <Image
               src={SITE_LOGO.src}
               alt={SITE_LOGO.alt}
               width={SITE_LOGO.width}
               height={SITE_LOGO.height}
-              className="h-8 w-auto max-w-full object-contain object-left"
+              className="h-8 w-auto max-w-full object-contain object-left mix-blend-multiply brightness-[1.03] contrast-[1.12] [filter:drop-shadow(0_2px_12px_rgba(0,0,0,0.4))]"
               sizes="240px"
             />
           </Link>
