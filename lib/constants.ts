@@ -1,5 +1,13 @@
 export const SITE_NAME = "Ruby Seas International";
 
+/** Full wordmark + emblem (see `public/ruby-seas-logo.png`). */
+export const SITE_LOGO = {
+  src: "/ruby-seas-logo.png",
+  alt: "Ruby Seas International Inc.",
+  width: 1024,
+  height: 559,
+} as const;
+
 export const NAV_LINKS = [
   { href: "/products", label: "Products" },
   { href: "/traceability", label: "Traceability" },

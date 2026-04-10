@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { NAV_LINKS } from "@/lib/constants";
+import { NAV_LINKS, SITE_LOGO } from "@/lib/constants";
 
 type Props = {
   open: boolean;
@@ -19,14 +20,26 @@ export function MobileDrawer({ open, onClose }: Props) {
         onClick={onClose}
       />
       <aside
+        aria-label="Site menu"
         className={`fixed right-0 top-0 z-50 flex h-full w-[min(100%,320px)] flex-col bg-navy-900 shadow-2xl transition-transform duration-300 ease-out lg:hidden ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between border-b border-navy-800 px-6 py-5">
-          <span className="font-display text-lg font-bold text-white">
-            Menu
-          </span>
+        <div className="flex items-center justify-between gap-3 border-b border-navy-800 px-4 py-4 sm:px-6 sm:py-5">
+          <Link
+            href="/"
+            onClick={onClose}
+            className="min-w-0 flex-1 rounded-lg bg-white/95 px-2 py-1.5 ring-1 ring-white/10"
+          >
+            <Image
+              src={SITE_LOGO.src}
+              alt={SITE_LOGO.alt}
+              width={SITE_LOGO.width}
+              height={SITE_LOGO.height}
+              className="h-8 w-auto max-w-full object-contain object-left"
+              sizes="240px"
+            />
+          </Link>
           <button
             type="button"
             onClick={onClose}

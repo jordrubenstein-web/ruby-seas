@@ -1,9 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { NAV_LINKS, SITE_NAME } from "@/lib/constants";
+import { NAV_LINKS, SITE_LOGO } from "@/lib/constants";
 import { MobileDrawer } from "./MobileDrawer";
 
 export function Navbar() {
@@ -31,11 +32,19 @@ export function Navbar() {
         }`}
       >
         <div className="mx-auto flex max-w-content items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <Link href="/" className="group flex items-center gap-2">
-            <span className="font-display text-xl font-bold tracking-tight text-white">
-              {SITE_NAME.split(" ")[0]}
-              <span className="text-seafoam-400"> Seas</span>
-            </span>
+          <Link
+            href="/"
+            className="group relative flex shrink-0 items-center rounded-lg bg-white/95 px-2 py-1 shadow-sm ring-1 ring-white/20 transition hover:bg-white"
+          >
+            <Image
+              src={SITE_LOGO.src}
+              alt={SITE_LOGO.alt}
+              width={SITE_LOGO.width}
+              height={SITE_LOGO.height}
+              className="h-8 w-auto max-h-9 max-w-[min(100vw-8rem,220px)] object-contain object-left sm:h-9 sm:max-h-10 sm:max-w-[260px]"
+              sizes="(max-width: 640px) 200px, 260px"
+              priority
+            />
           </Link>
 
           <nav className="hidden items-center gap-10 lg:flex">
