@@ -16,14 +16,19 @@ export const SITE_LOCKUP_WHITE = {
   height: 268,
 } as const;
 
-/** Aerial ocean surface — scenic B-roll (Pexels #3045163). Override with `NEXT_PUBLIC_HERO_VIDEO_URL`. */
+/**
+ * Default hero: open-ocean schooling fish (Pexels #20567455, Magda Ehlers).
+ * Override with `NEXT_PUBLIC_HERO_VIDEO_URL` for self-hosted 4K masters.
+ */
 export const DEFAULT_HERO_VIDEO = {
-  hd: "https://videos.pexels.com/video-files/3045163/3045163-hd_1920_1080_25fps.mp4",
-  sd: "https://videos.pexels.com/video-files/3045163/3045163-sd_640_360_25fps.mp4",
+  sd: "https://videos.pexels.com/video-files/20567455/20567455-sd_960_540_30fps.mp4",
+  hd: "https://videos.pexels.com/video-files/20567455/20567455-hd_1920_1080_60fps.mp4",
+  uhd: "https://videos.pexels.com/video-files/20567455/20567455-uhd_2560_1440_60fps.mp4",
 } as const;
 
+/** Poster / reduced-motion fallback — underwater marine (matches hero mood). */
 export const HERO_POSTER_IMAGE =
-  "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=85";
+  "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&q=90";
 
 /** Subtle deep-sea texture over hero video (`public/header-sea-texture.jpg`). */
 export const HERO_SEA_TEXTURE = "/header-sea-texture.jpg";

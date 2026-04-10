@@ -31,7 +31,7 @@ export function HeroSection() {
       <div className="absolute inset-0">
         {showVideo ? (
           <video
-            className="absolute inset-0 h-full w-full scale-[1.02] object-cover [filter:brightness(1.14)_saturate(1.12)_contrast(1.02)]"
+            className="absolute inset-0 h-full w-full scale-[1.02] object-cover [filter:brightness(1.06)_saturate(1.08)_contrast(1.02)]"
             autoPlay
             muted
             playsInline
@@ -44,6 +44,11 @@ export function HeroSection() {
               <source src={CUSTOM_HERO_VIDEO} type="video/mp4" />
             ) : (
               <>
+                <source
+                  src={DEFAULT_HERO_VIDEO.uhd}
+                  type="video/mp4"
+                  media="(min-width: 1920px)"
+                />
                 <source
                   src={DEFAULT_HERO_VIDEO.sd}
                   type="video/mp4"
@@ -63,7 +68,7 @@ export function HeroSection() {
             sizes="100vw"
           />
         )}
-        <div className="pointer-events-none absolute inset-0 opacity-[0.22] mix-blend-soft-light">
+        <div className="pointer-events-none absolute inset-0 opacity-[0.16] mix-blend-soft-light">
           <Image
             src={HERO_SEA_TEXTURE}
             alt=""
@@ -73,10 +78,10 @@ export function HeroSection() {
             aria-hidden
           />
         </div>
-        {/* Brighter ocean scrim — lets more water color through while keeping contrast for type */}
-        <div className="absolute inset-0 bg-gradient-to-br from-teal-900/45 via-cyan-950/38 to-sky-950/32" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-900/50 via-transparent to-cyan-200/20" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_65%_at_72%_38%,transparent_25%,rgba(8,47,73,0.38)_100%)]" />
+        {/* Scrim tuned for schooling-fish plate — clearer water, readable type */}
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-900/40 via-cyan-950/32 to-sky-950/26" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-900/45 via-transparent to-cyan-200/18" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_65%_at_72%_38%,transparent_28%,rgba(8,47,73,0.32)_100%)]" />
       </div>
 
       <div className="relative mx-auto flex min-h-[100svh] max-w-content flex-col justify-center px-4 pb-32 pt-28 sm:px-6 lg:px-8 lg:pb-24 lg:pt-32">
