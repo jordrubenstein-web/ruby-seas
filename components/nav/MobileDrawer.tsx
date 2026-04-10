@@ -1,8 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { NAV_LINKS, SITE_LOGO } from "@/lib/constants";
+import { NAV_LINKS } from "@/lib/constants";
+import { BrandLockup } from "./BrandLockup";
 
 type Props = {
   open: boolean;
@@ -25,25 +25,12 @@ export function MobileDrawer({ open, onClose }: Props) {
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between gap-3 border-b border-navy-800 px-4 py-4 sm:px-6 sm:py-5">
-          <Link
-            href="/"
-            onClick={onClose}
-            className="min-w-0 flex-1 py-1"
-          >
-            <Image
-              src={SITE_LOGO.src}
-              alt={SITE_LOGO.alt}
-              width={SITE_LOGO.width}
-              height={SITE_LOGO.height}
-              className="h-8 w-auto max-w-full object-contain object-left mix-blend-multiply brightness-[1.03] contrast-[1.12] [filter:drop-shadow(0_2px_12px_rgba(0,0,0,0.4))]"
-              sizes="240px"
-            />
-          </Link>
+        <div className="flex items-center justify-between gap-2 border-b border-navy-800 px-3 py-3 sm:px-4 sm:py-4">
+          <BrandLockup compact className="min-w-0 flex-1 pr-1" onNavigate={onClose} />
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg p-2 text-slate-400 hover:bg-navy-800 hover:text-white"
+            className="shrink-0 rounded-lg p-2 text-slate-400 hover:bg-navy-800 hover:text-white"
             aria-label="Close menu"
           >
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

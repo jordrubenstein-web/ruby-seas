@@ -8,6 +8,20 @@ export const SITE_LOGO = {
   height: 559,
 } as const;
 
+/**
+ * Emblem-only source (phase 1: same raster as full logo; clipped in `BrandLockup`).
+ * Replace with a transparent SVG/PNG of the fish-globe mark when available.
+ */
+export const SITE_LOGO_MARK = {
+  src: "/ruby-seas-mark.png",
+  alt: "",
+  width: 1024,
+  height: 559,
+} as const;
+
+/** Dark sea texture for solid header bar (full-width, low-opacity overlay). */
+export const HEADER_SEA_TEXTURE = "/header-sea-texture.jpg";
+
 /** Aerial ocean surface — scenic B-roll (Pexels #3045163). Override with `NEXT_PUBLIC_HERO_VIDEO_URL`. */
 export const DEFAULT_HERO_VIDEO = {
   hd: "https://videos.pexels.com/video-files/3045163/3045163-hd_1920_1080_25fps.mp4",

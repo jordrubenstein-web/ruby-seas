@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { NAV_LINKS, SITE_LOGO } from "@/lib/constants";
+import { HEADER_SEA_TEXTURE, NAV_LINKS } from "@/lib/constants";
+import { BrandLockup } from "./BrandLockup";
 import { MobileDrawer } from "./MobileDrawer";
 
 export function Navbar() {
@@ -25,27 +25,28 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 z-40 w-full transition-colors duration-300 ${
+        className={`fixed top-0 z-40 w-full transition-[box-shadow,border-color] duration-300 ${
           solid
-            ? "border-b border-navy-800/50 bg-navy-900/95 shadow-lg backdrop-blur-md"
-            : "bg-transparent"
+            ? "border-b border-navy-800/50 shadow-lg"
+            : "border-b border-transparent"
         }`}
       >
-        <div className="mx-auto flex max-w-content items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <Link
-            href="/"
-            className="group relative flex shrink-0 items-center py-1 transition-opacity hover:opacity-95"
-          >
-            <Image
-              src={SITE_LOGO.src}
-              alt={SITE_LOGO.alt}
-              width={SITE_LOGO.width}
-              height={SITE_LOGO.height}
-              className="h-8 w-auto max-h-9 max-w-[min(100vw-8rem,220px)] object-contain object-left mix-blend-multiply brightness-[1.03] contrast-[1.12] sm:h-9 sm:max-h-10 sm:max-w-[260px] [filter:drop-shadow(0_2px_14px_rgba(0,0,0,0.35))]"
-              sizes="(max-width: 640px) 200px, 260px"
-              priority
+        {solid ? (
+          <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+            <div className="absolute inset-0 bg-navy-900/95 backdrop-blur-md" />
+            <div
+              className="absolute inset-0 opacity-[0.22] mix-blend-soft-light"
+              style={{
+                backgroundImage: `url(${HEADER_SEA_TEXTURE})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center top",
+              }}
+              aria-hidden
             />
-          </Link>
+          </div>
+        ) : null}
+        <div className="relative z-10 mx-auto flex max-w-content items-center justify-between px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
+          <BrandLockup />
 
           <nav className="hidden items-center gap-10 lg:flex">
             {NAV_LINKS.map((link) => (
