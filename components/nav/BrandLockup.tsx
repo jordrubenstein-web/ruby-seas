@@ -1,65 +1,58 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { SITE_LOGO, SITE_LOGO_MARK } from "@/lib/constants";
+import { SITE_EMBLEM } from "@/lib/constants";
+
+const metallicWord =
+  "bg-gradient-to-b from-white via-slate-100 to-slate-400 bg-clip-text text-transparent";
+
+const wordShadow =
+  "[text-shadow:0_0.5px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(0,0,0,0.55),0_0_20px_rgba(148,163,184,0.25)]";
 
 type Props = {
-  /** Slightly smaller mark/type for the mobile drawer. */
-  compact?: boolean;
+  size?: "default" | "compact";
   className?: string;
-  /** e.g. close mobile drawer when navigating home */
+  /** e.g. close mobile drawer after navigation */
   onNavigate?: () => void;
 };
 
-/**
- * Header brand: white-inverted emblem + typographic wordmark with cool metallic gradient.
- * Emblem is clipped from `SITE_LOGO_MARK` (phase 1: shared raster) until a dedicated SVG exists.
- */
-export function BrandLockup({ compact = false, className = "", onNavigate }: Props) {
-  const markBox = compact
-    ? "h-12 w-12"
-    : "h-14 w-14 sm:h-[4.5rem] sm:w-[4.5rem]";
-  const line1 = compact
-    ? "text-base sm:text-lg"
-    : "text-lg font-bold sm:text-xl md:text-2xl";
-  const line2 = compact
-    ? "text-[0.5rem] tracking-[0.18em] sm:text-[0.55rem]"
-    : "text-[0.55rem] tracking-[0.2em] sm:text-xs sm:tracking-[0.22em]";
+export function BrandLockup({ size = "default", className = "", onNavigate }: Props) {
+  const isCompact = size === "compact";
+  const emblemClass = isCompact
+    ? "h-11 w-auto sm:h-12"
+    : "h-14 w-auto sm:h-16 md:h-[4.25rem]";
+
+  const line2Class = isCompact
+    ? `mt-0.5 font-display text-[0.55rem] font-light uppercase leading-tight tracking-[0.2em] ${metallicWord} ${wordShadow} sm:text-[0.65rem]`
+    : `mt-1 font-display text-[0.65rem] font-light uppercase leading-tight tracking-[0.22em] sm:text-xs md:text-[0.8rem] ${metallicWord} ${wordShadow}`;
 
   return (
     <Link
       href="/"
       onClick={onNavigate}
       className={`group flex min-w-0 items-center gap-2.5 sm:gap-3 md:gap-4 ${className}`}
-      aria-label={SITE_LOGO.alt}
     >
-      <div
-        className={`relative shrink-0 overflow-hidden rounded-full ring-1 ring-white/10 ${markBox}`}
-      >
-        <Image
-          src={SITE_LOGO_MARK.src}
-          alt=""
-          fill
-          className="object-cover object-[16%_center] brightness-0 invert contrast-[1.12]"
-          sizes={compact ? "48px" : "(max-width: 640px) 56px, 72px"}
-          priority={!compact}
-        />
-      </div>
-      <div
-        className={`flex min-w-0 flex-col justify-center leading-none [filter:drop-shadow(0_2px_10px_rgba(0,0,0,0.45))] ${compact ? "gap-0" : "gap-0.5"}`}
-      >
-        <span
-          className={`font-display font-bold tracking-tight ${line1} bg-gradient-to-br from-white via-slate-100 to-slate-400 bg-clip-text text-transparent`}
-        >
-          RUBY SEAS
-          <sup className="ml-0.5 align-super text-[0.5em] font-medium normal-case tracking-normal text-slate-200/95">
+      <Image
+        src={SITE_EMBLEM.src}
+        alt={SITE_EMBLEM.alt}
+        width={SITE_EMBLEM.width}
+        height={SITE_EMBLEM.height}
+        aria-hidden
+        className={`${emblemClass} shrink-0 object-contain object-left [filter:drop-shadow(0_2px_12px_rgba(0,0,0,0.45))]`}
+        sizes={isCompact ? "64px" : "(max-width: 768px) 72px, 88px"}
+        priority
+      />
+      <div className="min-w-0 leading-none">
+        <p className="font-display font-bold uppercase leading-none tracking-tight sm:tracking-tight">
+          <span className={`${metallicWord} ${wordShadow} ${isCompact ? "text-base sm:text-lg" : "text-lg sm:text-xl md:text-2xl"}`}>
+            RUBY SEAS
+          </span>
+          <sup className="ml-0.5 align-super text-[0.45em] font-normal tracking-normal text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.5)] sm:ml-1">
             ®
           </sup>
-        </span>
-        <span
-          className={`font-display font-medium uppercase text-transparent ${line2} bg-gradient-to-br from-slate-200 via-white to-slate-400 bg-clip-text`}
-        >
-          International Inc.
-        </span>
+        </p>
+        <p className={line2Class}>International Inc.</p>
       </div>
     </Link>
   );

@@ -5,7 +5,11 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { fadeUp } from "@/lib/animations";
-import { DEFAULT_HERO_VIDEO, HERO_POSTER_IMAGE } from "@/lib/constants";
+import {
+  DEFAULT_HERO_VIDEO,
+  HERO_POSTER_IMAGE,
+  HERO_SEA_TEXTURE,
+} from "@/lib/constants";
 
 const CUSTOM_HERO_VIDEO = process.env.NEXT_PUBLIC_HERO_VIDEO_URL?.trim();
 
@@ -59,6 +63,16 @@ export function HeroSection() {
             sizes="100vw"
           />
         )}
+        <div className="pointer-events-none absolute inset-0 opacity-[0.14] mix-blend-soft-light">
+          <Image
+            src={HERO_SEA_TEXTURE}
+            alt=""
+            fill
+            className="object-cover"
+            sizes="100vw"
+            aria-hidden
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-br from-navy-950/92 via-navy-900/78 to-navy-900/55" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_40%,transparent_20%,rgba(15,23,42,0.55)_100%)]" />
       </div>

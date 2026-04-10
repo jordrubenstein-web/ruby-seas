@@ -25,12 +25,16 @@ export function MobileDrawer({ open, onClose }: Props) {
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between gap-2 border-b border-navy-800 px-3 py-3 sm:px-4 sm:py-4">
-          <BrandLockup compact className="min-w-0 flex-1 pr-1" onNavigate={onClose} />
+        <div className="flex items-center justify-between gap-3 border-b border-navy-800 px-4 py-3 sm:px-6 sm:py-4">
+          <BrandLockup
+            size="compact"
+            className="min-w-0 flex-1 pr-2"
+            onNavigate={onClose}
+          />
           <button
             type="button"
             onClick={onClose}
-            className="shrink-0 rounded-lg p-2 text-slate-400 hover:bg-navy-800 hover:text-white"
+            className="rounded-lg p-2 text-slate-400 hover:bg-navy-800 hover:text-white"
             aria-label="Close menu"
           >
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

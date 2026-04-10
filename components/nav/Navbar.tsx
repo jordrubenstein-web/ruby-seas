@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { HEADER_SEA_TEXTURE, NAV_LINKS } from "@/lib/constants";
+import { NAV_LINKS } from "@/lib/constants";
 import { BrandLockup } from "./BrandLockup";
 import { MobileDrawer } from "./MobileDrawer";
 
@@ -25,28 +25,14 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 z-40 w-full transition-[box-shadow,border-color] duration-300 ${
+        className={`fixed top-0 z-40 w-full transition-colors duration-300 ${
           solid
-            ? "border-b border-navy-800/50 shadow-lg"
-            : "border-b border-transparent"
+            ? "border-b border-navy-800/50 bg-navy-900/95 shadow-lg backdrop-blur-md"
+            : "bg-transparent"
         }`}
       >
-        {solid ? (
-          <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-            <div className="absolute inset-0 bg-navy-900/95 backdrop-blur-md" />
-            <div
-              className="absolute inset-0 opacity-[0.22] mix-blend-soft-light"
-              style={{
-                backgroundImage: `url(${HEADER_SEA_TEXTURE})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center top",
-              }}
-              aria-hidden
-            />
-          </div>
-        ) : null}
-        <div className="relative z-10 mx-auto flex max-w-content items-center justify-between px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
-          <BrandLockup />
+        <div className="mx-auto flex max-w-content items-center justify-between px-4 py-3 sm:px-6 sm:py-3.5 lg:px-8">
+          <BrandLockup className="max-w-[min(100%,calc(100vw-11rem))] shrink transition-opacity hover:opacity-95 sm:max-w-none" />
 
           <nav className="hidden items-center gap-10 lg:flex">
             {NAV_LINKS.map((link) => (

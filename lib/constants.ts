@@ -1,6 +1,6 @@
 export const SITE_NAME = "Ruby Seas International";
 
-/** Full wordmark + emblem (see `public/ruby-seas-logo.png`). */
+/** Full wordmark + emblem (see `public/ruby-seas-logo.png`). Footer / print use. */
 export const SITE_LOGO = {
   src: "/ruby-seas-logo.png",
   alt: "Ruby Seas International Inc.",
@@ -8,19 +8,13 @@ export const SITE_LOGO = {
   height: 559,
 } as const;
 
-/**
- * Emblem-only source (phase 1: same raster as full logo; clipped in `BrandLockup`).
- * Replace with a transparent SVG/PNG of the fish-globe mark when available.
- */
-export const SITE_LOGO_MARK = {
-  src: "/ruby-seas-mark.png",
+/** Circular fish/globe mark — white on transparent (`public/ruby-seas-emblem-white.png`). */
+export const SITE_EMBLEM = {
+  src: "/ruby-seas-emblem-white.png",
   alt: "",
-  width: 1024,
+  width: 430,
   height: 559,
 } as const;
-
-/** Dark sea texture for solid header bar (full-width, low-opacity overlay). */
-export const HEADER_SEA_TEXTURE = "/header-sea-texture.jpg";
 
 /** Aerial ocean surface — scenic B-roll (Pexels #3045163). Override with `NEXT_PUBLIC_HERO_VIDEO_URL`. */
 export const DEFAULT_HERO_VIDEO = {
@@ -30,6 +24,9 @@ export const DEFAULT_HERO_VIDEO = {
 
 export const HERO_POSTER_IMAGE =
   "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=85";
+
+/** Subtle deep-sea texture over hero video (`public/header-sea-texture.jpg`). */
+export const HERO_SEA_TEXTURE = "/header-sea-texture.jpg";
 
 export const NAV_LINKS = [
   { href: "/products", label: "Products" },
