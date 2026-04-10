@@ -12,8 +12,8 @@ export const SITE_LOGO = {
 export const SITE_EMBLEM = {
   src: "/ruby-seas-emblem-white.png",
   alt: "",
-  width: 430,
-  height: 559,
+  width: 470,
+  height: 370,
 } as const;
 
 /** Aerial ocean surface — scenic B-roll (Pexels #3045163). Override with `NEXT_PUBLIC_HERO_VIDEO_URL`. */
