@@ -20,7 +20,7 @@ function projectPct(lon: number, lat: number) {
   };
 }
 
-/** Great-circle-style hub arcs in the same coordinate space as markers (decorative). */
+/** Hub routes — static, low-contrast lines only. */
 const HUB_ROUTES: readonly (readonly [readonly [number, number], readonly [number, number]])[] =
   [
     [[-79.3832, 43.6532], [55.27, 25.2]] as const,
@@ -43,13 +43,11 @@ function routePathD(
 function MapPinIcon({ active }: { active: boolean }) {
   return (
     <svg
-      width={32}
-      height={40}
+      width={28}
+      height={36}
       viewBox="0 0 32 40"
       className={`overflow-visible ${
-        active
-          ? "drop-shadow-[0_0_12px_rgba(249,115,22,0.75)]"
-          : "drop-shadow-[0_0_7px_rgba(249,115,22,0.45)]"
+        active ? "drop-shadow-[0_2px_6px_rgba(249,115,22,0.5)]" : ""
       }`}
       aria-hidden
     >
@@ -99,66 +97,60 @@ export function GlobalMap() {
           src={OCEAN_BACKDROP}
           alt=""
           fill
-          className="object-cover opacity-40"
+          className="object-cover opacity-[0.22]"
           sizes="100vw"
           priority={false}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-950/90 via-navy-900/85 to-navy-950/95" />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-950/96 via-navy-900/94 to-navy-950/[0.97]" />
         <div
-          className="animate-global-map-grid absolute inset-0 opacity-[0.12]"
+          className="animate-global-map-grid absolute inset-0 opacity-[0.055]"
           style={{
-            backgroundImage: `linear-gradient(rgba(86,197,176,0.35) 1px, transparent 1px),
- linear-gradient(90deg, rgba(86,197,176,0.35) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(86,197,176,0.28) 1px, transparent 1px),
+ linear-gradient(90deg, rgba(86,197,176,0.28) 1px, transparent 1px)`,
             backgroundSize: "48px 48px",
           }}
         />
       </div>
 
       <div className="relative mx-auto max-w-content px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl rounded-2xl border border-white/10 bg-navy-950/82 px-5 py-5 shadow-lg backdrop-blur-sm sm:px-6 sm:py-6">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-seafoam-400">
             Network
           </p>
           <h2 className="mt-2 font-display text-3xl font-bold text-white md:text-4xl">
             Our reach is global
           </h2>
-          <p className="mt-4 text-lg text-slate-300">
+          <p className="mt-4 text-lg leading-relaxed text-slate-200">
             Hubs in North America and the Caribbean — cold-chain routes to 42
             ports worldwide. Explore active markets on the map.
           </p>
         </div>
 
         <div className="mt-10 flex flex-col gap-8 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(16rem,22rem)] lg:items-start lg:gap-10">
-          <div className="relative overflow-hidden rounded-2xl border border-cyan-400/25 bg-navy-950/70 shadow-[0_0_80px_-20px_rgba(56,197,176,0.45)] backdrop-blur-md">
-            <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
+          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-navy-900/50 shadow-lg backdrop-blur-sm">
+            <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/[0.06]" />
             <div className="pointer-events-none absolute left-3 top-3 z-20 flex flex-wrap gap-2">
-              <span className="rounded-md border border-seafoam-500/40 bg-navy-900/90 px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-seafoam-300">
-                Live network
+              <span className="rounded-lg border border-white/10 bg-navy-950/90 px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-seafoam-300">
+                Network
               </span>
-              <span className="rounded-md border border-white/15 bg-navy-900/80 px-2 py-1 font-mono text-[10px] text-slate-400">
+              <span className="rounded-lg border border-white/10 bg-navy-950/85 px-2.5 py-1 text-[10px] font-medium text-slate-400">
                 {GLOBAL_REACH_MARKERS.length} markets
               </span>
             </div>
 
-            <div className="relative aspect-[2/1] w-full">
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_80%_at_50%_50%,rgba(15,35,65,0.15),rgba(10,22,40,0.92))]" />
+            <div className="relative aspect-[2/1] w-full bg-navy-950/40">
               <Image
                 src="/global-reach-map.png"
                 alt="World map showing Ruby Seas market coverage"
                 fill
-                className="object-contain object-center opacity-[0.92]"
+                className="object-contain object-center"
                 sizes="(max-width: 1024px) 100vw, 960px"
                 priority={false}
               />
               <div
-                className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(ellipse_68%_58%_at_50%_50%,transparent_0%,rgba(2,12,28,0.42)_88%)]"
+                className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-1/4 bg-gradient-to-t from-navy-950/35 to-transparent"
                 aria-hidden
               />
-              <div
-                className="animate-global-map-scan pointer-events-none absolute left-0 right-0 z-[2] h-[14%] bg-gradient-to-b from-transparent via-cyan-300/25 to-transparent"
-                aria-hidden
-              />
-              <div className="pointer-events-none absolute inset-0 z-[3] bg-gradient-to-t from-navy-950/45 via-transparent to-cyan-500/[0.07]" />
 
               <svg
                 className="pointer-events-none absolute inset-0 z-[5] h-full w-full"
@@ -171,12 +163,10 @@ export function GlobalMap() {
                     key={`${i}-${from[0]}`}
                     d={routePathD(from, to)}
                     fill="none"
-                    stroke="rgba(56, 197, 176, 0.45)"
-                    strokeWidth={0.35}
+                    stroke="rgba(86, 197, 176, 0.22)"
+                    strokeWidth={0.32}
                     strokeLinecap="round"
-                    strokeDasharray="1.2 1.8"
-                    className="animate-route-dash"
-                    style={{ strokeDashoffset: 0 }}
+                    strokeDasharray="1.4 2"
                   />
                 ))}
               </svg>
@@ -184,14 +174,13 @@ export function GlobalMap() {
               {GLOBAL_REACH_MARKERS.map((m) => {
                 const pos = project(m.coordinates[0], m.coordinates[1]);
                 const isOn = selectedId === m.id || hoveredId === m.id;
-                const showLabel = isOn;
                 return (
                   <motion.button
                     key={m.id}
                     type="button"
                     aria-label={`${m.name}, ${m.region}`}
                     aria-pressed={selectedId === m.id}
-                    className="absolute z-10 flex -translate-x-1/2 -translate-y-full flex-col-reverse items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-seafoam-400 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950"
+                    className="absolute z-10 flex -translate-x-1/2 -translate-y-full flex-col-reverse items-center gap-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-seafoam-400 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-950"
                     style={{ left: pos.left, top: pos.top }}
                     onMouseEnter={() => setHoveredId(m.id)}
                     onMouseLeave={() => setHoveredId(null)}
@@ -206,36 +195,22 @@ export function GlobalMap() {
                     }}
                     initial={false}
                     animate={{
-                      scale: isOn ? 1.06 : 1,
+                      scale: isOn ? 1.04 : 1,
                     }}
-                    whileHover={{ scale: 1.08 }}
-                    transition={{ type: "spring", stiffness: 420, damping: 26 }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 28 }}
                   >
-                    <span className="relative">
-                      <MapPinIcon active={isOn} />
-                      <span
-                        className={`pointer-events-none absolute -top-1 left-1/2 h-9 w-9 -translate-x-1/2 rounded-full border border-amber-400/25 ${
-                          isOn ? "opacity-50" : "opacity-30"
-                        }`}
-                      >
-                        <span className="absolute inset-0 animate-ping rounded-full border border-amber-400/20" />
-                      </span>
+                    <MapPinIcon active={isOn} />
+                    <span
+                      role="tooltip"
+                      className={`mb-0.5 max-w-[7.5rem] rounded-md px-1.5 py-0.5 text-center text-[9px] font-semibold leading-tight text-white shadow-[0_1px_3px_rgba(0,0,0,0.45)] sm:max-w-[9rem] sm:px-2 sm:py-1 sm:text-[10px] md:max-w-[10rem] md:text-[11px] ${
+                        isOn
+                          ? "border border-seafoam-400/50 bg-navy-950/92 ring-1 ring-seafoam-400/25"
+                          : "border border-white/20 bg-navy-950/80"
+                      } ${isOn ? "block" : "hidden md:block"}`}
+                    >
+                      {m.name}
                     </span>
-                    <AnimatePresence>
-                      {showLabel ? (
-                        <motion.span
-                          key="label"
-                          role="tooltip"
-                          initial={{ opacity: 0, y: 4 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 2 }}
-                          transition={{ duration: 0.15 }}
-                          className="mb-0.5 max-w-[9.5rem] rounded-md border border-white/20 bg-navy-950/95 px-2 py-1 text-center text-[10px] font-semibold uppercase tracking-wide text-white shadow-lg backdrop-blur-sm sm:max-w-[11rem] sm:text-xs sm:normal-case sm:tracking-normal"
-                        >
-                          {m.name}
-                        </motion.span>
-                      ) : null}
-                    </AnimatePresence>
                   </motion.button>
                 );
               })}
@@ -248,9 +223,9 @@ export function GlobalMap() {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 4 }}
-                  className="absolute bottom-3 left-3 right-3 z-20 rounded-xl border border-white/15 bg-navy-900/95 p-4 shadow-xl backdrop-blur-md sm:left-auto sm:right-3 sm:w-72"
+                  className="absolute bottom-3 left-3 right-3 z-20 rounded-xl border border-white/10 bg-navy-950/95 p-4 shadow-lg backdrop-blur-md sm:left-auto sm:right-3 sm:w-72"
                 >
-                  <p className="font-mono text-[10px] uppercase tracking-widest text-seafoam-400">
+                  <p className="text-[10px] font-semibold uppercase tracking-widest text-seafoam-400">
                     {active.region}
                   </p>
                   <p className="mt-1 font-display text-xl font-bold text-white">
@@ -265,10 +240,10 @@ export function GlobalMap() {
           </div>
 
           <aside
-            className="flex max-h-[min(70vh,520px)] flex-col rounded-2xl border border-navy-700/80 bg-navy-900/60 p-4 backdrop-blur-sm lg:sticky lg:top-28"
+            className="flex max-h-[min(70vh,520px)] flex-col rounded-2xl border border-white/10 bg-navy-900/55 p-4 shadow-lg backdrop-blur-sm lg:sticky lg:top-28"
             aria-label="Market directory"
           >
-            <p className="font-mono text-[10px] uppercase tracking-widest text-slate-500">
+            <p className="text-[10px] font-semibold uppercase tracking-widest text-slate-500">
               Directory
             </p>
             <div className="mt-3 flex-1 space-y-4 overflow-y-auto pr-1">
@@ -290,8 +265,8 @@ export function GlobalMap() {
                           }
                           className={`w-full rounded-lg px-3 py-2.5 text-left text-sm transition ${
                             selectedId === m.id
-                              ? "bg-navy-800 text-white ring-1 ring-amber-400/50"
-                              : "text-slate-300 hover:bg-navy-800/80 hover:text-white"
+                              ? "bg-navy-800 text-white ring-1 ring-seafoam-500/35"
+                              : "text-slate-200 hover:bg-navy-800/70 hover:text-white"
                           }`}
                         >
                           <span className="font-medium">{m.name}</span>

@@ -29,14 +29,6 @@ body {
   .animate-global-map-grid {
     animation: global-map-grid 24s linear infinite;
   }
-
-  .animate-global-map-scan {
-    animation: global-map-scan 5.5s ease-in-out infinite;
-  }
-
-  .animate-route-dash {
-    animation: route-dash 2.8s linear infinite;
-  }
 }
 
 @keyframes global-map-grid {
@@ -45,28 +37,5 @@ body {
   }
   to {
     background-position: 48px 48px;
-  }
-}
-
-@keyframes global-map-scan {
-  0% {
-    top: -8%;
-    opacity: 0;
-  }
-  8% {
-    opacity: 0.45;
-  }
-  92% {
-    opacity: 0.45;
-  }
-  100% {
-    top: 108%;
-    opacity: 0;
-  }
-}
-
-@keyframes route-dash {
-  to {
-    stroke-dashoffset: -24;
   }
 }
