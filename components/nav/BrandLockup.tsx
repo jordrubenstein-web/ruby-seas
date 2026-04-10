@@ -4,11 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { SITE_EMBLEM } from "@/lib/constants";
 
+/** Gradient fill only — never combine `text-shadow` with `bg-clip-text` / `text-transparent` (fills counters in R, O, etc.). */
 const metallicWord =
   "bg-gradient-to-b from-white via-slate-100 to-slate-400 bg-clip-text text-transparent";
-
-const wordShadow =
-  "[text-shadow:0_0.5px_0_rgba(255,255,255,0.9),0_1px_2px_rgba(0,0,0,0.55),0_0_20px_rgba(148,163,184,0.25)]";
 
 type Props = {
   size?: "default" | "compact";
@@ -23,9 +21,10 @@ export function BrandLockup({ size = "default", className = "", onNavigate }: Pr
     ? "h-11 w-auto sm:h-12"
     : "h-14 w-auto sm:h-16 md:h-[4.25rem]";
 
-  const line2Class = isCompact
-    ? `mt-0.5 font-display text-[0.55rem] font-light uppercase leading-tight tracking-[0.2em] ${metallicWord} ${wordShadow} sm:text-[0.65rem]`
-    : `mt-1 font-display text-[0.65rem] font-light uppercase leading-tight tracking-[0.22em] sm:text-xs md:text-[0.8rem] ${metallicWord} ${wordShadow}`;
+  const line1Size = isCompact ? "text-base sm:text-lg" : "text-lg sm:text-xl md:text-2xl";
+  const line2Size = isCompact
+    ? "text-[0.55rem] sm:text-[0.65rem]"
+    : "text-[0.65rem] sm:text-xs md:text-[0.8rem]";
 
   return (
     <Link
@@ -45,14 +44,22 @@ export function BrandLockup({ size = "default", className = "", onNavigate }: Pr
       />
       <div className="min-w-0 leading-none">
         <p className="font-display font-bold uppercase leading-none tracking-tight sm:tracking-tight">
-          <span className={`${metallicWord} ${wordShadow} ${isCompact ? "text-base sm:text-lg" : "text-lg sm:text-xl md:text-2xl"}`}>
-            RUBY SEAS
+          <span
+            className={`inline-block [filter:drop-shadow(0_1px_3px_rgba(0,0,0,0.55))] ${line1Size}`}
+          >
+            <span className={metallicWord}>RUBY SEAS</span>
           </span>
-          <sup className="ml-0.5 align-super text-[0.45em] font-normal tracking-normal text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.5)] sm:ml-1">
+          <sup className="ml-0.5 align-super text-[0.45em] font-normal tracking-normal text-white [filter:drop-shadow(0_1px_2px_rgba(0,0,0,0.5))] sm:ml-1">
             ®
           </sup>
         </p>
-        <p className={line2Class}>International Inc.</p>
+        <p
+          className={`mt-0.5 font-display font-light uppercase leading-tight tracking-[0.2em] sm:mt-1 sm:tracking-[0.22em] ${line2Size}`}
+        >
+          <span className="inline-block [filter:drop-shadow(0_1px_2px_rgba(0,0,0,0.45))]">
+            <span className={metallicWord}>International Inc.</span>
+          </span>
+        </p>
       </div>
     </Link>
   );
