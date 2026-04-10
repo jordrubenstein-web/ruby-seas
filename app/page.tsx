@@ -1,4 +1,6 @@
 import { HeroSection } from "@/components/home/HeroSection";
+
+export const dynamic = "force-dynamic";
 import { DualPathway } from "@/components/home/DualPathway";
 import { SectionWrapper } from "@/components/shared/SectionWrapper";
 import { StatsRibbon } from "@/components/home/StatsRibbon";
