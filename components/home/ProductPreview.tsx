@@ -32,8 +32,9 @@ export function ProductPreview() {
             Core Products
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-slate-600">
-            Lobster and crab programs built for yield — from North American
-            tails to Norwegian snow crab and Pacific Dungeness.
+            Lobster, crab, finfish, shrimp, and shellfish programs built for
+            yield — from North American lobster to Norwegian snow crab, Pacific
+            species, and global whitefish and value-added lines.
           </p>
         </motion.div>
 

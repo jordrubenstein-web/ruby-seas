@@ -49,8 +49,9 @@ export function WhoWeServe() {
                 Foodservice distributors
               </h3>
               <p className="mt-2 max-w-sm text-sm text-slate-300">
-                Volume programs, spec-built packs, and cold-chain logistics for
-                operators and broadline distribution.
+                Reliable supply of premium seafood products for foodservice
+                distributors, backed by consistent quality, stable sourcing, and
+                competitive market pricing.
               </p>
               <span className="mt-4 inline-flex items-center text-sm font-semibold text-seafoam-400">
                 Request a quote →
@@ -75,8 +76,9 @@ export function WhoWeServe() {
                 Retail stores &amp; grocery chains
               </h3>
               <p className="mt-2 max-w-sm text-sm text-slate-300">
-                Shelf-ready SKUs, brand programs, and category support for
-                national and regional retail.
+                Premium seafood solutions for retail and grocery partners,
+                focused on consistency, quality, and products that resonate with
+                today&apos;s consumers.
               </p>
               <span className="mt-4 inline-flex items-center text-sm font-semibold text-seafoam-400">
                 Explore core products →

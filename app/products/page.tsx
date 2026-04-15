@@ -6,7 +6,7 @@ import { CTABand } from "@/components/shared/CTABand";
 export const metadata: Metadata = {
   title: "Products",
   description:
-    "Core lobster and crab programs — North American lobster, Bahamas Ruby Seas brand, snow crab, king crab, and more.",
+    "Lobster, crab, finfish, shrimp, and shellfish — North American lobster, Caribbean programs, Norwegian crab, global whitefish, tuna, and more.",
 };
 
 export default function ProductsPage() {
@@ -18,12 +18,12 @@ export default function ProductsPage() {
             Core products
           </p>
           <h1 className="mt-3 font-display text-4xl font-bold text-white md:text-5xl">
-            Lobster &amp; crab, built for scale
+            Seafood programs built for scale
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-300">
-            From North American lobster and Bahamas Ruby Seas brand to Norwegian
-            snow crab and Pacific Dungeness — programs aligned to foodservice
-            and retail demand.
+            From North American lobster and Caribbean lines to Norwegian crab,
+            Pacific Dungeness, global whitefish, shrimp, tuna, and shellfish —
+            aligned to foodservice and retail demand.
           </p>
         </div>
       </div>

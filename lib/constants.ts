@@ -128,7 +128,7 @@ export const PRODUCT_CATEGORIES = [
   },
   {
     id: "caribbean-lobster",
-    title: "Caribbean Lobster (Ruby Seas brand)",
+    title: "Caribbean Lobster",
     description:
       "Bahamas spiny lobster under the Ruby Seas brand — diver-caught, cold-chain disciplined, and positioned for premium retail and foodservice.",
     badge: "Bahamas",
@@ -186,6 +186,96 @@ export const PRODUCT_CATEGORIES = [
       "https://images.unsplash.com/photo-1691345043485-85a4b873a5b7?auto=format&fit=crop&w=1400&q=80",
     imageAlt: "Dungeness crab on a dock by the water",
   },
+  {
+    id: "black-cod-sablefish",
+    title: "Black Cod / Sablefish",
+    description:
+      "Rich, high-oil fillets from Alaska — ideal for miso-style programs, premium retail, and foodservice menus that need reliable portioning and plate presence.",
+    badge: "Alaska",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/7/78/Sablefish_%28Anoplopoma_fimbria%29_01_%28cropped%29.jpg",
+    imageAlt: "Sablefish (black cod) fillets on a retail tray",
+  },
+  {
+    id: "dover-sole",
+    title: "Dover Sole",
+    description:
+      "European flatfish from Dutch fisheries and processing — delicate flavor and consistent fillets for white-tablecloth dining and upscale retail.",
+    badge: "Netherlands",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/c/cd/Solea_solea_1.jpg",
+    imageAlt: "Whole Dover sole (Solea solea) showing both sides of the flatfish",
+  },
+  {
+    id: "mahi-mahi",
+    title: "Mahi Mahi",
+    description:
+      "Firm, mild fillets and portions from the eastern Pacific — suited to grilling, tacos, and seasonal menus with steady supply from Peru and Ecuador.",
+    badge: "Peru / Ecuador",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/1/19/Dorado_Golden_Fish_%28121911221%29.jpeg",
+    imageAlt: "Brightly colored mahi-mahi (dorado / common dolphinfish) at market",
+  },
+  {
+    id: "swai",
+    title: "Swai",
+    description:
+      "Mild, versatile pangasius fillets from Vietnam — value-forward programs for foodservice and retail with predictable sizing and yield.",
+    badge: "Vietnam",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/0/05/Steamed_pangasius_cream_dory1.jpg",
+    imageAlt: "Steamed pangasius (cream dory / swai-style) fillets on a plate",
+  },
+  {
+    id: "black-tiger-shrimp",
+    title: "Black Tiger Shrimp",
+    description:
+      "Bold shell-on and peeled options from key origins — sized for retail trays, broadline packs, and operators who want visible quality and curl.",
+    badge: "Nigeria / Myanmar",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/9/98/Penaeus_monodon.jpg",
+    imageAlt: "Black tiger shrimp (Penaeus monodon) showing striped shell",
+  },
+  {
+    id: "clams",
+    title: "Clams",
+    description:
+      "Whole and shucked clam programs from Vietnam — for chowders, pasta, and steam-table formats with disciplined grading and pack styles.",
+    badge: "Vietnam",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/a/af/Steamed_clams.jpg",
+    imageAlt: "Steamed clams in the shell",
+  },
+  {
+    id: "tuna",
+    title: "Tuna",
+    description:
+      "Loins, saku, and steaks from Southeast Asian supply — aligned to sushi, poke, and cooked-seafood applications with traceable documentation.",
+    badge: "Vietnam / Indonesia",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/c/c3/Yellowfin_tuna.jpg",
+    imageAlt: "Whole yellowfin tuna on deck after catch",
+  },
+  {
+    id: "conch",
+    title: "Conch",
+    description:
+      "Caribbean conch meat from Nicaragua and the Bahamas — for fritters, ceviche-style dishes, and specialty programs that need authentic island flavor.",
+    badge: "Nicaragua / Bahamas",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/0/01/Conch_Salad.jpg",
+    imageAlt: "Caribbean conch salad and conch fritters",
+  },
+  {
+    id: "octopus",
+    title: "Octopus",
+    description:
+      "Tender, cleaned octopus from Iberian supply chains — tentacle and whole options for tapas, salads, and grilled plates with European consistency.",
+    badge: "Portugal / Spain",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/9/9f/Octopus_vulgaris_2.jpg",
+    imageAlt: "Common octopus (Octopus vulgaris) underwater",
+  },
 ] as const;
 
 export const WHY_RUBY_SEAS_PILLARS = [
@@ -213,6 +303,11 @@ export const WHY_RUBY_SEAS_PILLARS = [
     id: "expertise",
     title: "Proven Industry Expertise",
     body: "Decades of experience in seafood procurement, processing, and international trade.",
+  },
+  {
+    id: "compliance",
+    title: "Regulatory Compliance",
+    body: "Full adherence to U.S. and international seafood regulations, with strict quality control and documentation standards maintained across all products and supply chains.",
   },
 ] as const;
 
