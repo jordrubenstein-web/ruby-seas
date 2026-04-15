@@ -8,7 +8,7 @@ import { fadeUp, productCard, viewportOnce } from "@/lib/animations";
 
 export function ProductPreview() {
   return (
-    <section className="section-py bg-pearl">
+    <section className="bg-pearl pt-[var(--section-py)] pb-8 lg:pb-10">
       <motion.div
         className="mx-auto max-w-content px-4 sm:px-6 lg:px-8"
         initial="hidden"

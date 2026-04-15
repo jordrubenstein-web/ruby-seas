@@ -23,7 +23,7 @@ export function WhyRubySeas() {
 
   return (
     <motion.section
-      className="section-py relative overflow-hidden"
+      className="relative overflow-hidden pt-8 pb-[var(--section-py)] lg:pt-10"
       initial="hidden"
       whileInView="visible"
       viewport={viewportSection}
