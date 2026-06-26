@@ -80,37 +80,6 @@ export function ProductPreview() {
             </motion.article>
           ))}
         </div>
-
-        <motion.div
-          variants={fadeUp}
-          className="mt-12 border-t border-slate-200/90 pt-8 text-center text-sm text-slate-600"
-        >
-          <p className="font-medium text-navy-900">
-            See our competitors&apos; websites for help:
-          </p>
-          <ul className="mt-3 flex flex-col items-center gap-2 sm:flex-row sm:justify-center sm:gap-8">
-            <li>
-              <a
-                href="https://www.mazzetta.com/products/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-seafoam-700 underline decoration-seafoam-600/40 underline-offset-2 transition hover:text-seafoam-800"
-              >
-                Mazzetta
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.fisherkingseafoods.com/products/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-seafoam-700 underline decoration-seafoam-600/40 underline-offset-2 transition hover:text-seafoam-800"
-              >
-                Fisher King
-              </a>
-            </li>
-          </ul>
-        </motion.div>
       </motion.div>
     </section>
   );

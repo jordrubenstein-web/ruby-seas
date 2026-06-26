@@ -5,7 +5,9 @@ import { WhoWeServe } from "@/components/home/WhoWeServe";
 import { ScaleStatsSection } from "@/components/home/ScaleStatsSection";
 import { ProductPreview } from "@/components/home/ProductPreview";
 import { WhyRubySeas } from "@/components/home/WhyRubySeas";
+import { InternationalSection } from "@/components/home/InternationalSection";
 import { GlobalMap } from "@/components/home/GlobalMap";
+import { RetailSections } from "@/components/home/RetailSections";
 import { CTABand } from "@/components/shared/CTABand";
 
 export default function HomePage() {
@@ -18,7 +20,9 @@ export default function HomePage() {
       <ScaleStatsSection />
       <ProductPreview />
       <WhyRubySeas />
+      <InternationalSection />
       <GlobalMap />
+      <RetailSections />
       <CTABand />
     </>
   );

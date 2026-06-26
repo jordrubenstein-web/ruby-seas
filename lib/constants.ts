@@ -85,6 +85,12 @@ export const WHY_RUBY_SEAS_BG_VIDEO = DEEP_REEF_MARINE_VIDEO;
 /** Poster for Why Ruby Seas video / reduced-motion fallback (generic marine; swap for a crab frame if desired). */
 export const WHY_RUBY_SEAS_POSTER_IMAGE = HERO_POSTER_IMAGE;
 
+/** International section — light turquoise tropical beach (Unsplash). */
+export const INTERNATIONAL_BG_IMAGE = "/international/beach.jpg";
+
+/** Retail section — soft underwater light, cool ocean tones (Unsplash). */
+export const RETAIL_BG_IMAGE = "/retail/ocean-soft.jpg";
+
 /** Home sections that participate in scroll-spy + hash nav (order = page order). */
 export const HOME_SCROLL_SPY_HREFS = [
   "/#site-splash",
@@ -92,7 +98,8 @@ export const HOME_SCROLL_SPY_HREFS = [
   "/#scale-stats-focus",
   "/#core-products-focus",
   "/#why-ruby-seas-focus",
-  "/#global-reach-focus",
+  "/#international-focus",
+  "/#retail-focus",
 ] as const;
 
 export const NAV_LINKS = [
@@ -101,9 +108,8 @@ export const NAV_LINKS = [
   { href: "/#scale-stats-focus", label: "Scale" },
   { href: "/#core-products-focus", label: "Products" },
   { href: "/#why-ruby-seas-focus", label: "Why" },
-  { href: "/#global-reach-focus", label: "Our Reach" },
-  { href: "/foodservice", label: "Distributor" },
-  { href: "/retail", label: "Retail" },
+  { href: "/#international-focus", label: "International" },
+  { href: "/#retail-focus", label: "Retail" },
   { href: "/about", label: "About" },
 ] as const;
 
@@ -308,6 +314,199 @@ export const WHY_RUBY_SEAS_PILLARS = [
     id: "compliance",
     title: "Regulatory Compliance",
     body: "Full adherence to U.S. and international seafood regulations, with strict quality control and documentation standards maintained across all products and supply chains.",
+  },
+] as const;
+
+export const INTERNATIONAL_INTRO = {
+  title: "International",
+  tagline: "Global Expertise. Local Presence.",
+  body: "Our international operations extend beyond North America, providing strategic sourcing, processing, and distribution capabilities across Europe and the Caribbean. Through our affiliated companies, Ruby Seas delivers premium seafood with exceptional quality, reliable logistics, and local market expertise.",
+} as const;
+
+export const INTERNATIONAL_AFFILIATES = [
+  {
+    id: "ideal-blue",
+    region: "France",
+    name: "Ideal Blue",
+    paragraphs: [
+      "Headquartered in Nice, France, Ideal Blue serves as Ruby Seas' European import and distribution hub, connecting seafood producers around the world with customers throughout the European Union.",
+      "Acting as the vital link between sourcing regions and end markets, Ideal Blue leverages deep product expertise and the synergies between North American and European seafood markets to create value for its customers. The company specializes in sourcing, importing, and distributing premium frozen seafood while providing personalized service and market intelligence across Europe.",
+      "Today, Ideal Blue proudly serves customers in Belgium, Cyprus, Denmark, France, Germany, Greece, Italy, the Netherlands, Portugal, and the United Kingdom.",
+    ],
+    capabilities: [
+      "European seafood import and distribution",
+      "Strategic sourcing and procurement",
+      "Foodservice and retail supply",
+      "Market intelligence across EU seafood markets",
+      "International logistics and supply chain management",
+    ],
+  },
+  {
+    id: "gl-seafood",
+    region: "Bahamas",
+    name: "G&L Seafood Co. Ltd.",
+    paragraphs: [
+      "Located in Freeport, Bahamas, G&L Seafood Co. Ltd. is Ruby Seas' Caribbean processing and export operation. With more than 30 years of industry experience, this family-owned company has grown to become one of The Bahamas' leading seafood exporters.",
+      "Working closely with licensed local fishermen, G&L Seafood sources the finest Bahamian Spiny Lobster Tails, Stone Crab Claws, and Conch Meat, processing each product to the highest international food safety and quality standards before exporting to customers around the world.",
+      "Through a commitment to traceability, quality assurance, and customer satisfaction, G&L Seafood plays a critical role in delivering premium Caribbean seafood from harvest to market.",
+    ],
+    capabilities: [
+      "Bahamian Spiny Lobster processing",
+      "Stone Crab and Conch sourcing",
+      "International seafood exports",
+      "HACCP-compliant processing and quality assurance",
+      "Private label and custom packaging",
+      "Cold chain logistics and global distribution",
+    ],
+  },
+] as const;
+
+export const RETAIL_INTRO = {
+  title: "Retail",
+  tagline: "Built for Today's Retail Market",
+  body: "Ruby Seas supplies premium frozen seafood to retailers across North America with a focus on quality, consistency, traceability, and responsible sourcing. We work closely with our retail partners to meet evolving food safety, labeling, and supply chain requirements while delivering dependable products and service.",
+} as const;
+
+export const RETAIL_TRACEABILITY = {
+  title: "Traceability",
+  subtitle: "Supply Chain Transparency",
+  paragraphs: [
+    "Seafood traceability continues to play an increasingly important role in the retail industry. In preparation for the FDA's Food Safety Modernization Act (FSMA) Rule 204, Ruby Seas evaluated its traceability systems with guidance from industry organizations and technology partners.",
+    "Although implementation of FSMA 204 has been delayed, many major retailers already require the electronic exchange of Key Data Elements (KDEs). Ruby Seas is prepared to support these requirements and adapt as regulations continue to evolve.",
+  ],
+  partnersHeading: "Our Traceability Partners",
+  partners: [
+    {
+      id: "gdst",
+      name: "Global Dialogue on Seafood Traceability (GDST)",
+      body: "Ruby Seas is a member of the Global Dialogue on Seafood Traceability (GDST), an international organization that develops standards for digital seafood traceability and supply chain interoperability.",
+    },
+    {
+      id: "wholechain",
+      name: "Wholechain",
+      body: "Ruby Seas worked with Wholechain, a blockchain-based traceability platform, to review our supply chain and strengthen our digital traceability capabilities.",
+    },
+  ],
+} as const;
+
+export const RETAIL_SUSTAINABILITY = {
+  title: "Sustainability",
+  intro:
+    "Ruby Seas supports responsible seafood sourcing through memberships and certifications with recognized industry organizations.",
+  programs: [
+    {
+      id: "gsa",
+      name: "Global Seafood Alliance (GSA)",
+      body: "Ruby Seas has been a Corporate Member of the Global Seafood Alliance for many years, supporting responsible seafood production and supply chains worldwide.",
+    },
+    {
+      id: "msc",
+      name: "Marine Stewardship Council (MSC)",
+      body: "Ruby Seas maintains MSC Chain of Custody Certification, allowing us to handle and distribute certified seafood through a verified chain of custody. Our portfolio includes a variety of MSC-certified products, including Norwegian King Crab, Snow Crab, and other responsibly sourced seafood.",
+    },
+    {
+      id: "rpm",
+      name: "Responsible Plastics Management (RPM)",
+      body: "Ruby Seas participates in the Responsible Plastics Management (RPM) program and has completed training focused on improving recycling practices and increasing the use of recycled content in packaging where practical.",
+    },
+  ],
+} as const;
+
+export const RETAIL_PARTNER_BENEFITS = {
+  title: "Why Retailers Partner with Ruby Seas",
+  items: [
+    "Supply chain traceability",
+    "FSMA 204 readiness",
+    "MSC Chain of Custody Certification",
+    "Responsible sourcing programs",
+    "Private label packaging capabilities",
+    "Reliable import and distribution throughout North America",
+  ],
+} as const;
+
+/** Retail assortment grid — page 2 of the Retail section (home). */
+export const RETAIL_PRODUCTS_INTRO = {
+  title: "Retail Assortment",
+  description:
+    "Shelf-ready Ruby Seas programs built for retail velocity — premium frozen seafood with consistent spec, labeling, and supply.",
+} as const;
+
+export const RETAIL_PRODUCTS = [
+  {
+    id: "breaded-calamari-rings",
+    title: "Breaded Calamari Rings",
+    image: "/retail/products/breaded-calamari-rings.jpg",
+    imageAlt: "Ruby Seas breaded calamari rings retail package",
+  },
+  {
+    id: "breaded-calamari-fries",
+    title: "Breaded Calamari Fries",
+    subtitle: "Salt & Pepper",
+    image: "/retail/products/breaded-calamari-fries.jpg",
+    imageAlt: "Ruby Seas breaded calamari fries salt and pepper retail package",
+  },
+  {
+    id: "cooked-squid-tubes-tentacles",
+    title: "Cooked Squid",
+    subtitle: "Tubes & Tentacles",
+    image: "/retail/products/cooked-squid-tubes-tentacles.jpg",
+    imageAlt: "Ruby Seas cooked squid tubes and tentacles retail package",
+  },
+  {
+    id: "baby-octopus",
+    title: "Baby Octopus",
+    image: "/retail/products/baby-octopus.jpg",
+    imageAlt: "Ruby Seas baby octopus retail package",
+  },
+  {
+    id: "santolla-red-king-crab",
+    title: "Santolla Red King Crab",
+    image: "/retail/products/santolla-red-king-crab.jpg",
+    imageAlt: "Ruby Seas Santolla red king crab retail package",
+  },
+  {
+    id: "lobster-croquettes",
+    title: "Lobster Croquettes",
+    image: "/retail/products/lobster-croquettes.jpg",
+    imageAlt: "Ruby Seas lobster croquettes retail package",
+  },
+  {
+    id: "mussel-meat",
+    title: "Mussel Meat",
+    image: "/retail/products/mussel-meat.jpg",
+    imageAlt: "Ruby Seas mussel meat retail package",
+  },
+  {
+    id: "spanish-paella",
+    title: "Spanish Paella",
+    image: "/retail/products/spanish-paella.jpg",
+    imageAlt: "Ruby Seas Spanish paella retail package",
+  },
+  {
+    id: "seafood-mix-octopus",
+    title: "Seafood Mix",
+    subtitle: "with Octopus",
+    image: "/retail/products/seafood-mix-octopus.jpg",
+    imageAlt: "Ruby Seas seafood mix with octopus retail package",
+  },
+  {
+    id: "seafood-mix-surimi",
+    title: "Seafood Mix",
+    subtitle: "with Surimi",
+    image: "/retail/products/seafood-mix-surimi.jpg",
+    imageAlt: "Ruby Seas seafood mix with surimi retail package",
+  },
+  {
+    id: "half-shell-scallops",
+    title: "Half Shell Scallops",
+    image: "/retail/products/half-shell-scallops.jpg",
+    imageAlt: "Ruby Seas half shell scallops retail package",
+  },
+  {
+    id: "cooked-white-clams",
+    title: "Cooked White Clams",
+    image: "/retail/products/cooked-white-clams.jpg",
+    imageAlt: "Ruby Seas cooked white clams retail package",
   },
 ] as const;
 
