@@ -54,13 +54,20 @@ export function ProductPreview() {
                 className="group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition hover:shadow-xl"
               >
                 <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden">
-                  <Image
-                    src={cat.image}
-                    alt={cat.imageAlt}
-                    fill
-                    className="object-cover transition duration-500 group-hover:scale-105"
-                    sizes="(max-width: 640px) 85vw, 25vw"
-                  />
+                  {cat.image ? (
+                    <Image
+                      src={cat.image}
+                      alt={cat.imageAlt}
+                      fill
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                      sizes="(max-width: 640px) 85vw, 25vw"
+                    />
+                  ) : (
+                    <div
+                      className="absolute inset-0 bg-slate-100"
+                      aria-hidden
+                    />
+                  )}
                   <div className="absolute left-4 top-4 rounded-full bg-navy-900/80 px-3 py-1 text-xs font-semibold text-accent">
                     {cat.badge}
                   </div>

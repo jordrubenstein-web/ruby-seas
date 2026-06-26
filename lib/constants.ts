@@ -94,7 +94,6 @@ export const RETAIL_BG_IMAGE = "/retail/ocean-soft.jpg";
 /** Home sections that participate in scroll-spy + hash nav (order = page order). */
 export const HOME_SCROLL_SPY_HREFS = [
   "/#site-splash",
-  "/#who-we-serve-focus",
   "/#scale-stats-focus",
   "/#core-products-focus",
   "/#why-ruby-seas-focus",
@@ -104,7 +103,6 @@ export const HOME_SCROLL_SPY_HREFS = [
 
 export const NAV_LINKS = [
   { href: "/#site-splash", label: "Home" },
-  { href: "/#who-we-serve-focus", label: "Who" },
   { href: "/#scale-stats-focus", label: "Scale" },
   { href: "/#core-products-focus", label: "Products" },
   { href: "/#why-ruby-seas-focus", label: "Why" },
@@ -148,8 +146,7 @@ export const PRODUCT_CATEGORIES = [
     description:
       "Norwegian and Canadian snow crab clusters and sections — sized, glazed, and packed for high-yield recovery in North American markets.",
     badge: "Canada & Norway",
-    image:
-      "https://images.unsplash.com/photo-1677643612277-1509dce0b697?auto=format&fit=crop&w=1400&q=80",
+    image: "/home/snow-crab.jpg",
     imageAlt: "Snow crab clusters and legs on ice",
   },
   {
@@ -158,9 +155,9 @@ export const PRODUCT_CATEGORIES = [
     description:
       "Red and blue king crab from Alaska and Norway — long-leg and section programs for distributors who need reliable spec and supply.",
     badge: "Alaska & Norway",
-    image:
-      "https://images.unsplash.com/photo-1759823338953-0763ee0428fb?auto=format&fit=crop&w=1400&q=80",
-    imageAlt: "King crab legs on ice at market",
+    image: "/home/king-crab.jpg",
+    imageAlt:
+      "Cooked king crab legs on a white plate with butter, seafood cracker, and pick on a dark slate background",
   },
   {
     id: "southern-king-crab",
@@ -168,8 +165,7 @@ export const PRODUCT_CATEGORIES = [
     description:
       "Argentine and Chilean southern king crab — a differentiated crab line for operators looking beyond traditional Alaskan supply.",
     badge: "Argentina & Chile",
-    image:
-      "https://images.unsplash.com/photo-1561361398-b2bc9f049851?auto=format&fit=crop&w=1400&q=80",
+    image: "/home/southern-king-crab.jpg",
     imageAlt: "Southern king crab (centolla) on the shore",
   },
   {
@@ -178,9 +174,8 @@ export const PRODUCT_CATEGORIES = [
     description:
       "Atlantic Jonah crab bodies, claws, and cocktail programs — sourced from Canadian fisheries for consistent sizing and flavor.",
     badge: "Canada",
-    image:
-      "https://images.unsplash.com/photo-1645588904198-75b8a3ed9f9d?auto=format&fit=crop&w=1400&q=80",
-    imageAlt: "Atlantic crab on coastal rock",
+    image: "/home/jonah-crab.jpg",
+    imageAlt: "Jonah crab claws on ice",
   },
   {
     id: "dungeness-crab",
@@ -188,9 +183,8 @@ export const PRODUCT_CATEGORIES = [
     description:
       "Pacific Dungeness from Alaska and Washington — whole cooked, sections, and meat packs for west-coast menus and national distribution.",
     badge: "Alaska / Washington",
-    image:
-      "https://images.unsplash.com/photo-1691345043485-85a4b873a5b7?auto=format&fit=crop&w=1400&q=80",
-    imageAlt: "Dungeness crab on a dock by the water",
+    image: "/home/dungeness-crab.webp",
+    imageAlt: "Cooked Dungeness crab clusters on a platter with lemon and butter",
   },
   {
     id: "black-cod-sablefish",
@@ -198,9 +192,8 @@ export const PRODUCT_CATEGORIES = [
     description:
       "Rich, high-oil fillets from Alaska — ideal for miso-style programs, premium retail, and foodservice menus that need reliable portioning and plate presence.",
     badge: "Alaska",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/7/78/Sablefish_%28Anoplopoma_fimbria%29_01_%28cropped%29.jpg",
-    imageAlt: "Sablefish (black cod) fillets on a retail tray",
+    image: "/home/black-cod.jpg",
+    imageAlt: "Glazed black cod fillet with sautéed greens",
   },
   {
     id: "dover-sole",
@@ -208,9 +201,9 @@ export const PRODUCT_CATEGORIES = [
     description:
       "European flatfish from Dutch fisheries and processing — delicate flavor and consistent fillets for white-tablecloth dining and upscale retail.",
     badge: "Netherlands",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/c/cd/Solea_solea_1.jpg",
-    imageAlt: "Whole Dover sole (Solea solea) showing both sides of the flatfish",
+    image: "/home/dover-sole.jpg",
+    imageAlt:
+      "Whole pan-seared Dover sole on a white oval plate with lemon butter sauce, capers, parsley, and a lemon wedge",
   },
   {
     id: "mahi-mahi",
@@ -218,9 +211,8 @@ export const PRODUCT_CATEGORIES = [
     description:
       "Firm, mild fillets and portions from the eastern Pacific — suited to grilling, tacos, and seasonal menus with steady supply from Peru and Ecuador.",
     badge: "Peru / Ecuador",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/1/19/Dorado_Golden_Fish_%28121911221%29.jpeg",
-    imageAlt: "Brightly colored mahi-mahi (dorado / common dolphinfish) at market",
+    image: "/home/mahi-mahi.jpg",
+    imageAlt: "Grilled mahi mahi fillets with tropical fruit salsa",
   },
   {
     id: "swai",
@@ -228,19 +220,17 @@ export const PRODUCT_CATEGORIES = [
     description:
       "Mild, versatile pangasius fillets from Vietnam — value-forward programs for foodservice and retail with predictable sizing and yield.",
     badge: "Vietnam",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/0/05/Steamed_pangasius_cream_dory1.jpg",
-    imageAlt: "Steamed pangasius (cream dory / swai-style) fillets on a plate",
+    image: "/home/swai-plated.jpg",
+    imageAlt: "Seasoned Swai fillets with greens and sauce on a white plate",
   },
   {
-    id: "black-tiger-shrimp",
-    title: "Black Tiger Shrimp",
+    id: "tuna",
+    title: "Tuna",
     description:
-      "Bold shell-on and peeled options from key origins — sized for retail trays, broadline packs, and operators who want visible quality and curl.",
-    badge: "Nigeria / Myanmar",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/9/98/Penaeus_monodon.jpg",
-    imageAlt: "Black tiger shrimp (Penaeus monodon) showing striped shell",
+      "Loins, saku, and steaks from Southeast Asian supply — aligned to sushi, poke, and cooked-seafood applications with traceable documentation.",
+    badge: "Vietnam / Indonesia",
+    image: "/home/tuna.jpg",
+    imageAlt: "Seared tuna steak with asparagus on a white plate",
   },
   {
     id: "clams",
@@ -253,24 +243,23 @@ export const PRODUCT_CATEGORIES = [
     imageAlt: "Steamed clams in the shell",
   },
   {
-    id: "tuna",
-    title: "Tuna",
+    id: "black-tiger-shrimp",
+    title: "Black Tiger Shrimp",
     description:
-      "Loins, saku, and steaks from Southeast Asian supply — aligned to sushi, poke, and cooked-seafood applications with traceable documentation.",
-    badge: "Vietnam / Indonesia",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/c/c3/Yellowfin_tuna.jpg",
-    imageAlt: "Whole yellowfin tuna on deck after catch",
+      "Bold shell-on and peeled options from key origins — sized for retail trays, broadline packs, and operators who want visible quality and curl.",
+    badge: "Nigeria / Myanmar",
+    image: "/home/black-tiger-shrimp.jpg",
+    imageAlt: "Raw black tiger shrimp with striped shells on slate",
   },
   {
     id: "conch",
-    title: "Conch",
+    title: "White Shrimp",
     description:
-      "Caribbean conch meat from Nicaragua and the Bahamas — for fritters, ceviche-style dishes, and specialty programs that need authentic island flavor.",
-    badge: "Nicaragua / Bahamas",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/0/01/Conch_Salad.jpg",
-    imageAlt: "Caribbean conch salad and conch fritters",
+      "Clean, mild flavor with consistent sizing and excellent value. Available peeled and shell-on from trusted origins, ideal for retail programs, foodservice, and everyday menu applications.",
+    badge: "Ecuador",
+    image: "/home/white-shrimp.jpg",
+    imageAlt:
+      "Cooked shrimp cocktail in a stemmed glass with cocktail sauce, lemon wedge, and parsley",
   },
   {
     id: "octopus",
@@ -278,9 +267,9 @@ export const PRODUCT_CATEGORIES = [
     description:
       "Tender, cleaned octopus from Iberian supply chains — tentacle and whole options for tapas, salads, and grilled plates with European consistency.",
     badge: "Portugal / Spain",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/9/9f/Octopus_vulgaris_2.jpg",
-    imageAlt: "Common octopus (Octopus vulgaris) underwater",
+    image: "/home/octopus.jpg",
+    imageAlt:
+      "Grilled octopus tentacles with caramelized char on a black plate, garnished with fresh herbs on a rustic wooden surface",
   },
 ] as const;
 
@@ -327,11 +316,11 @@ export const INTERNATIONAL_AFFILIATES = [
   {
     id: "ideal-blue",
     region: "France",
-    name: "Ideal Blue",
+    name: "Ruby Seas France",
     paragraphs: [
-      "Headquartered in Nice, France, Ideal Blue serves as Ruby Seas' European import and distribution hub, connecting seafood producers around the world with customers throughout the European Union.",
-      "Acting as the vital link between sourcing regions and end markets, Ideal Blue leverages deep product expertise and the synergies between North American and European seafood markets to create value for its customers. The company specializes in sourcing, importing, and distributing premium frozen seafood while providing personalized service and market intelligence across Europe.",
-      "Today, Ideal Blue proudly serves customers in Belgium, Cyprus, Denmark, France, Germany, Greece, Italy, the Netherlands, Portugal, and the United Kingdom.",
+      "Headquartered in Nice, we serve as the European import and distribution hub, connecting seafood producers around the world with customers throughout the European Union.",
+      "Acting as the vital link between sourcing regions and end markets, Ruby Seas leverages deep product expertise and the synergies between North American and European seafood markets to create value for its customers. The operation specializes in sourcing, importing, and distributing premium frozen seafood while providing personalized service and market intelligence across Europe.",
+      "Today, Ruby Seas proudly serves customers in Belgium, Cyprus, Denmark, France, Germany, Greece, Italy, the Netherlands, Portugal, and the United Kingdom.",
     ],
     capabilities: [
       "European seafood import and distribution",
@@ -346,7 +335,7 @@ export const INTERNATIONAL_AFFILIATES = [
     region: "Bahamas",
     name: "G&L Seafood Co. Ltd.",
     paragraphs: [
-      "Located in Freeport, Bahamas, G&L Seafood Co. Ltd. is Ruby Seas' Caribbean processing and export operation. With more than 30 years of industry experience, this family-owned company has grown to become one of The Bahamas' leading seafood exporters.",
+      "Located in Freeport, Bahamas, G&L Seafood Co. Ltd. is a Ruby Seas joint venture, Caribbean processing and export operation. With more than 30 years of industry experience, this family-owned company has grown to become one of The Bahamas' leading seafood exporters.",
       "Working closely with licensed local fishermen, G&L Seafood sources the finest Bahamian Spiny Lobster Tails, Stone Crab Claws, and Conch Meat, processing each product to the highest international food safety and quality standards before exporting to customers around the world.",
       "Through a commitment to traceability, quality assurance, and customer satisfaction, G&L Seafood plays a critical role in delivering premium Caribbean seafood from harvest to market.",
     ],
@@ -391,8 +380,6 @@ export const RETAIL_TRACEABILITY = {
 
 export const RETAIL_SUSTAINABILITY = {
   title: "Sustainability",
-  intro:
-    "Ruby Seas supports responsible seafood sourcing through memberships and certifications with recognized industry organizations.",
   programs: [
     {
       id: "gsa",
@@ -459,10 +446,10 @@ export const RETAIL_PRODUCTS = [
     imageAlt: "Ruby Seas baby octopus retail package",
   },
   {
-    id: "santolla-red-king-crab",
-    title: "Santolla Red King Crab",
-    image: "/retail/products/santolla-red-king-crab.jpg",
-    imageAlt: "Ruby Seas Santolla red king crab retail package",
+    id: "southern-king-crab",
+    title: "Southern King Crab",
+    image: "/retail/products/southern-king-crab.jpg",
+    imageAlt: "Ruby Seas Southern King Crab retail package",
   },
   {
     id: "lobster-croquettes",

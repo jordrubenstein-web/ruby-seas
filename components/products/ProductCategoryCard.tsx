@@ -32,14 +32,16 @@ export function ProductCategoryCard({
       viewport={viewportOnce}
       variants={fadeUp}
     >
-      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-xl">
-        <Image
-          src={image}
-          alt={imageAlt}
-          fill
-          className="object-cover"
-          sizes="(max-width: 1024px) 100vw, 50vw"
-        />
+      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-slate-100 shadow-xl">
+        {image ? (
+          <Image
+            src={image}
+            alt={imageAlt}
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+        ) : null}
         <div className="absolute left-4 top-4 rounded-full bg-navy-900/85 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-accent">
           {badge}
         </div>

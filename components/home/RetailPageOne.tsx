@@ -124,10 +124,7 @@ export function RetailPageOne() {
           <SectionRail index="02" label={RETAIL_SUSTAINABILITY.title} />
 
           <div>
-            <p className="max-w-3xl text-base font-semibold leading-relaxed text-navy-900 md:text-[1.0625rem]">
-              {RETAIL_SUSTAINABILITY.intro}
-            </p>
-            <div className="mt-8 grid gap-5 lg:grid-cols-3">
+            <div className="grid gap-5 lg:grid-cols-3">
               {RETAIL_SUSTAINABILITY.programs.map((program, i) => (
                 <article key={program.id} className={`flex h-full flex-col ${glassCard}`}>
                   <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-navy-900 text-xs font-bold text-white">

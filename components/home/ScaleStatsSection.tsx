@@ -18,8 +18,9 @@ import { AnimatedStat } from "@/components/home/StatsRibbon";
 
 export function ScaleStatsSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const statsGridRef = useRef<HTMLDivElement>(null);
-  const statsGridInView = useInView(statsGridRef, {
+  // Observe the section shell, not the scroll-transformed stat grid — transforms
+  // prevent useInView/IO from firing, which left startWhen stuck false and counts at 0.
+  const statsGridInView = useInView(sectionRef, {
     once: true,
     amount: 0.2,
     margin: "0px 0px -8% 0px",
@@ -83,7 +84,6 @@ export function ScaleStatsSection() {
           shipments, ports, and partner programs.
         </motion.p>
         <motion.div
-          ref={statsGridRef}
           variants={staggerOnly}
           className="mt-12 grid grid-cols-2 gap-4 will-change-transform lg:grid-cols-4 lg:gap-6"
           style={{ y: statsY, opacity: statsOpacity }}
