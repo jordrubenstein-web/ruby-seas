@@ -33,8 +33,8 @@ export function ProductPreview() {
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-slate-600">
             Lobster, crab, finfish, shrimp, and shellfish programs built for
-            yield — from North American lobster to Norwegian snow crab, Pacific
-            species, and global whitefish and value-added lines.
+            consistent quality — from North American lobster to Norwegian snow
+            crab, Pacific species, and global whitefish and value-added lines.
           </p>
         </motion.div>
 
@@ -50,7 +50,7 @@ export function ProductPreview() {
               className="flex h-full w-[85vw] shrink-0 snap-center sm:w-auto"
             >
               <Link
-                href="/products"
+                href={`/products#${cat.id}`}
                 className="group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition hover:shadow-xl"
               >
                 <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden">

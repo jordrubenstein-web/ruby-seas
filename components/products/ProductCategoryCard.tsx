@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { fadeUp, viewportOnce } from "@/lib/animations";
 
 type Props = {
+  id: string;
   title: string;
   description: string;
   badge: string;
@@ -15,6 +16,7 @@ type Props = {
 };
 
 export function ProductCategoryCard({
+  id,
   title,
   description,
   badge,
@@ -24,7 +26,8 @@ export function ProductCategoryCard({
 }: Props) {
   return (
     <motion.article
-      className={`grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16 ${
+      id={id}
+      className={`scroll-mt-28 grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16 ${
         reverse ? "lg:[&>div:first-child]:order-2 lg:[&>div:last-child]:order-1" : ""
       }`}
       initial="hidden"

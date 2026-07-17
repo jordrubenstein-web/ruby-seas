@@ -77,6 +77,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/contact" className="text-slate-600 hover:text-seafoam-600">
+                  Contact Us
+                </Link>
+              </li>
+              <li>
                 <Link href="/get-a-quote" className="font-medium text-seafoam-600 hover:text-seafoam-700">
                   Get a Quote
                 </Link>

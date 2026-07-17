@@ -20,6 +20,7 @@ export const GLOBAL_REACH_LOCATIONS: GlobalReachLocation[] = [
   { id: "jm", name: "Jamaica", lat: 18.05, lng: -77.3 },
   { id: "tc", name: "Turks & Caicos", lat: 21.75, lng: -71.75 },
   { id: "hn", name: "Honduras", lat: 15.2, lng: -86.24 },
+  { id: "gt", name: "Guatemala", lat: 15.5, lng: -90.25 },
   { id: "ni", name: "Nicaragua", lat: 12.9, lng: -85.2 },
   { id: "cr", name: "Costa Rica", lat: 9.7, lng: -84.1 },
   { id: "pa", name: "Panama", lat: 8.5, lng: -80.0 },

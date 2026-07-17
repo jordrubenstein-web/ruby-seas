@@ -118,7 +118,7 @@ export function HeroSection() {
             className="mt-6 max-w-2xl text-lg text-white/95 drop-shadow-[0_1px_8px_rgba(0,0,0,0.35)]"
           >
             Delivering premium seafood to foodservice and retail partners across
-            North America—while executing the same standards across global
+            North America while executing the same standards across global
             markets.
           </motion.p>
           <motion.div

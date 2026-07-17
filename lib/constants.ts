@@ -39,7 +39,7 @@ export const SPLASH_BG_VIDEO = {
 export const SPLASH_POSTER_IMAGE = "/video-posters/splash.jpg";
 
 /**
- * “Scale you can measure” — glowing jellyfish / deep water (Pexels #5136532).
+ * “Global Scale. Proven Performance.” — glowing jellyfish / deep water (Pexels #5136532).
  * (Plan clip #5537790 is not served from Pexels CDN in this environment.)
  */
 export const STATS_BG_VIDEO = {
@@ -109,6 +109,7 @@ export const NAV_LINKS = [
   { href: "/#international-focus", label: "International" },
   { href: "/#retail-focus", label: "Retail" },
   { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact Us" },
 ] as const;
 
 export const STATS = [
@@ -124,7 +125,7 @@ export const PRODUCT_CATEGORIES = [
     id: "na-lobster",
     title: "North American Lobster",
     description:
-      "Hard-shell and new-shell programs from Canada and Maine — graded for yield, built for consistent foodservice and retail supply.",
+      "Lobster Meat & Lobster Tails in a full range of sizes and specifications — packed for consistent quality, reliable supply, and exceptional performance across foodservice and retail.",
     badge: "Canada / Maine",
     image:
       "https://images.unsplash.com/photo-1551463682-189bf47449d0?auto=format&fit=crop&w=1400&q=80",
@@ -134,7 +135,7 @@ export const PRODUCT_CATEGORIES = [
     id: "caribbean-lobster",
     title: "Caribbean Lobster",
     description:
-      "Bahamas spiny lobster under the Ruby Seas brand — diver-caught, cold-chain disciplined, and positioned for premium retail and foodservice.",
+      "Bahamas spiny lobster tails under the Ruby Seas brand — diver-caught, cold-chain disciplined, and positioned for premium retail and foodservice.",
     badge: "Bahamas",
     image:
       "https://images.unsplash.com/photo-1585546247643-14e9deb7c998?auto=format&fit=crop&w=1400&q=80",
@@ -153,7 +154,7 @@ export const PRODUCT_CATEGORIES = [
     id: "king-crab",
     title: "King Crab",
     description:
-      "Red and blue king crab from Alaska and Norway — long-leg and section programs for distributors who need reliable spec and supply.",
+      "Red & Gold King Crab from Alaska and Norway — long-leg & claw, and section programs for distributors who need reliable spec and supply.",
     badge: "Alaska & Norway",
     image: "/home/king-crab.jpg",
     imageAlt:
@@ -172,8 +173,8 @@ export const PRODUCT_CATEGORIES = [
     id: "jonah-crab",
     title: "Jonah Crab",
     description:
-      "Atlantic Jonah crab bodies, claws, and cocktail programs — sourced from Canadian fisheries for consistent sizing and flavor.",
-    badge: "Canada",
+      "Atlantic Jonah crab bodies, claws, and cocktail programs — sourced from American & Canadian fisheries for consistent sizing and flavor.",
+    badge: "US / Canada",
     image: "/home/jonah-crab.jpg",
     imageAlt: "Jonah crab claws on ice",
   },
@@ -190,7 +191,7 @@ export const PRODUCT_CATEGORIES = [
     id: "black-cod-sablefish",
     title: "Black Cod / Sablefish",
     description:
-      "Rich, high-oil fillets from Alaska — ideal for miso-style programs, premium retail, and foodservice menus that need reliable portioning and plate presence.",
+      "Rich, high-oil fillets from Alaska — ideal for miso-style programs, premium foodservice menus that need reliable quality and plate presence.",
     badge: "Alaska",
     image: "/home/black-cod.jpg",
     imageAlt: "Glazed black cod fillet with sautéed greens",
@@ -199,7 +200,7 @@ export const PRODUCT_CATEGORIES = [
     id: "dover-sole",
     title: "Dover Sole",
     description:
-      "European flatfish from Dutch fisheries and processing — delicate flavor and consistent fillets for white-tablecloth dining and upscale retail.",
+      "European flatfish from Dutch fisheries and processing — delicate flavor and consistent fillets for white-tablecloth dining.",
     badge: "Netherlands",
     image: "/home/dover-sole.jpg",
     imageAlt:
@@ -209,8 +210,8 @@ export const PRODUCT_CATEGORIES = [
     id: "mahi-mahi",
     title: "Mahi Mahi",
     description:
-      "Firm, mild fillets and portions from the eastern Pacific — suited to grilling, tacos, and seasonal menus with steady supply from Peru and Ecuador.",
-    badge: "Peru / Ecuador",
+      "Firm, mild fillets and portions from the Pacific — suited to grilling, tacos, and seasonal menus with steady supply from Peru, Ecuador & Vietnam.",
+    badge: "Peru / Ecuador / Vietnam",
     image: "/home/mahi-mahi.jpg",
     imageAlt: "Grilled mahi mahi fillets with tropical fruit salsa",
   },
@@ -218,7 +219,7 @@ export const PRODUCT_CATEGORIES = [
     id: "swai",
     title: "Swai",
     description:
-      "Mild, versatile pangasius fillets from Vietnam — value-forward programs for foodservice and retail with predictable sizing and yield.",
+      "Mild, versatile pangasius fillets from Vietnam — value-forward programs for foodservice with predictable sizing and yield.",
     badge: "Vietnam",
     image: "/home/swai-plated.jpg",
     imageAlt: "Seasoned Swai fillets with greens and sauce on a white plate",
@@ -246,8 +247,8 @@ export const PRODUCT_CATEGORIES = [
     id: "black-tiger-shrimp",
     title: "Black Tiger Shrimp",
     description:
-      "Bold shell-on and peeled options from key origins — sized for retail trays, broadline packs, and operators who want visible quality and curl.",
-    badge: "Nigeria / Myanmar",
+      "Frozen at Sea Shrimp from Nigeria — sized for distributors who want visible quality and curl.",
+    badge: "Nigeria",
     image: "/home/black-tiger-shrimp.jpg",
     imageAlt: "Raw black tiger shrimp with striped shells on slate",
   },
@@ -255,7 +256,7 @@ export const PRODUCT_CATEGORIES = [
     id: "conch",
     title: "White Shrimp",
     description:
-      "Clean, mild flavor with consistent sizing and excellent value. Available peeled and shell-on from trusted origins, ideal for retail programs, foodservice, and everyday menu applications.",
+      "Clean, mild flavor with consistent sizing and excellent value. Available peeled and shell-on from trusted origins, ideal for foodservice, and everyday menu applications.",
     badge: "Ecuador",
     image: "/home/white-shrimp.jpg",
     imageAlt:
@@ -337,9 +338,11 @@ export const INTERNATIONAL_AFFILIATES = [
     paragraphs: [
       "Located in Freeport, Bahamas, G&L Seafood Co. Ltd. is a Ruby Seas joint venture, Caribbean processing and export operation. With more than 30 years of industry experience, this family-owned company has grown to become one of The Bahamas' leading seafood exporters.",
       "Working closely with licensed local fishermen, G&L Seafood sources the finest Bahamian Spiny Lobster Tails, Stone Crab Claws, and Conch Meat, processing each product to the highest international food safety and quality standards before exporting to customers around the world.",
+      "The facility is GFSI certified as a safe food facility — a rare distinction in The Bahamas earned through months of dedicated work — underscoring G&L's commitment to food safety at every step.",
       "Through a commitment to traceability, quality assurance, and customer satisfaction, G&L Seafood plays a critical role in delivering premium Caribbean seafood from harvest to market.",
     ],
     capabilities: [
+      "GFSI-certified safe food facility",
       "Bahamian Spiny Lobster processing",
       "Stone Crab and Conch sourcing",
       "International seafood exports",
@@ -373,7 +376,7 @@ export const RETAIL_TRACEABILITY = {
     {
       id: "wholechain",
       name: "Wholechain",
-      body: "Ruby Seas worked with Wholechain, a blockchain-based traceability platform, to review our supply chain and strengthen our digital traceability capabilities.",
+      body: "Ruby Seas works with Wholechain, a blockchain-based traceability platform, to review our supply chain and strengthen our digital traceability capabilities.",
     },
   ],
 } as const;
@@ -422,6 +425,7 @@ export const RETAIL_PRODUCTS = [
   {
     id: "breaded-calamari-rings",
     title: "Breaded Calamari Rings",
+    subtitle: "Imported from Peru & Vietnam",
     image: "/retail/products/breaded-calamari-rings.jpg",
     imageAlt: "Ruby Seas breaded calamari rings retail package",
   },
@@ -434,10 +438,10 @@ export const RETAIL_PRODUCTS = [
   },
   {
     id: "cooked-squid-tubes-tentacles",
-    title: "Cooked Squid",
+    title: "Raw Squid",
     subtitle: "Tubes & Tentacles",
     image: "/retail/products/cooked-squid-tubes-tentacles.jpg",
-    imageAlt: "Ruby Seas cooked squid tubes and tentacles retail package",
+    imageAlt: "Ruby Seas raw squid tubes and tentacles retail package",
   },
   {
     id: "baby-octopus",

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PRODUCT_CATEGORIES } from "@/lib/constants";
 import { ProductCategoryCard } from "@/components/products/ProductCategoryCard";
+import { ProductsHashScroller } from "@/components/products/ProductsHashScroller";
 import { CTABand } from "@/components/shared/CTABand";
 
 export const metadata: Metadata = {
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 export default function ProductsPage() {
   return (
     <>
+      <ProductsHashScroller />
       <div className="border-b border-slate-100 bg-gradient-to-b from-navy-900 to-navy-800 pt-28 pb-16 text-center">
         <div className="mx-auto max-w-content px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-seafoam-400">
@@ -33,6 +35,7 @@ export default function ProductsPage() {
           {PRODUCT_CATEGORIES.map((cat, index) => (
             <ProductCategoryCard
               key={cat.id}
+              id={cat.id}
               title={cat.title}
               description={cat.description}
               badge={cat.badge}

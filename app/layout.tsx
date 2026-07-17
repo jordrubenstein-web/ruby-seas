@@ -34,7 +34,7 @@ export default function RootLayout({
         />
         <link href={googleFontsHref} rel="stylesheet" />
       </head>
-      <body className="min-h-screen pb-20 font-sans md:pb-[4.5rem]">
+      <body className="min-h-screen pb-28 font-sans md:pb-24">
         <Navbar />
         <main>{children}</main>
         <Footer />

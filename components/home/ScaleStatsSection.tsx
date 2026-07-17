@@ -74,7 +74,7 @@ export function ScaleStatsSection() {
           variants={fadeUp}
           className="text-center font-display text-3xl font-bold text-white drop-shadow-sm md:text-4xl"
         >
-          Scale you can measure
+          Global Scale. Proven Performance.
         </motion.h2>
         <motion.p
           variants={fadeUp}
