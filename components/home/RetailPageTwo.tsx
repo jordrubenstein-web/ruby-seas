@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { RETAIL_PRODUCTS, RETAIL_PRODUCTS_INTRO } from "@/lib/constants";
 import { fadeUp, productCard, viewportOnce } from "@/lib/animations";
@@ -47,7 +48,10 @@ export function RetailPageTwo() {
               }}
               className="flex h-full w-[72vw] shrink-0 snap-center sm:w-auto"
             >
-              <div className="group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition hover:shadow-xl">
+              <Link
+                href={`/retail#${item.id}`}
+                className="group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm transition hover:shadow-xl"
+              >
                 <div className="relative aspect-[3/4] w-full shrink-0 overflow-hidden bg-gradient-to-b from-pearl to-white">
                   <Image
                     src={item.image}
@@ -58,7 +62,7 @@ export function RetailPageTwo() {
                   />
                 </div>
                 <div className="flex flex-1 flex-col border-t border-slate-100 p-4 text-center sm:p-5">
-                  <h3 className="font-display text-base font-bold leading-snug text-navy-900 sm:text-lg">
+                  <h3 className="font-display text-base font-bold leading-snug text-navy-900 group-hover:text-seafoam-600 sm:text-lg">
                     {item.title}
                   </h3>
                   {"subtitle" in item && item.subtitle ? (
@@ -66,8 +70,11 @@ export function RetailPageTwo() {
                       {item.subtitle}
                     </p>
                   ) : null}
+                  <span className="mt-auto inline-block pt-3 text-sm font-semibold text-seafoam-600">
+                    View product →
+                  </span>
                 </div>
-              </div>
+              </Link>
             </motion.article>
           ))}
         </div>

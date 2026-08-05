@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
+import { QUOTE_PRODUCT_LABELS } from "@/lib/quote-products";
 
 const QUOTE_TO = "wes@rubyseas.com";
 
@@ -20,13 +21,6 @@ const BUYER_LABELS: Record<string, string> = {
   retailer: "Retailer",
   wholesaler: "Wholesaler",
   international: "International buyer",
-};
-
-const PRODUCT_LABELS: Record<string, string> = {
-  fish: "Wild-caught & responsibly sourced fish",
-  shellfish: "Premium shellfish",
-  "value-added": "Value-added & ready meals",
-  lobster: "Bahamas spiny lobster (MSC)",
 };
 
 export async function POST(request: Request) {
@@ -59,7 +53,7 @@ export async function POST(request: Request) {
     process.env.QUOTE_FROM_EMAIL?.trim() ||
     "Ruby Seas Quotes <onboarding@resend.dev>";
 
-  const products = data.products.map((p) => PRODUCT_LABELS[p] ?? p);
+  const products = data.products.map((p) => QUOTE_PRODUCT_LABELS[p] ?? p);
   const productList = products.map((p) => `• ${p}`).join("\n");
   const notes = data.message?.trim() || "(none)";
 

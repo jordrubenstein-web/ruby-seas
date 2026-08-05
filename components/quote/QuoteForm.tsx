@@ -5,19 +5,16 @@ import { useForm, type DefaultValues } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { StepIndicator } from "./StepIndicator";
-
-const PRODUCT_OPTIONS = [
-  { id: "fish", label: "Wild-caught & responsibly sourced fish" },
-  { id: "shellfish", label: "Premium shellfish" },
-  { id: "value-added", label: "Value-added & ready meals" },
-  { id: "lobster", label: "Bahamas spiny lobster (MSC)" },
-] as const;
+import {
+  QUOTE_PRODUCT_GROUPS,
+  QUOTE_PRODUCT_LABELS,
+} from "@/lib/quote-products";
 
 const formSchema = z.object({
   buyerType: z.enum(["retailer", "wholesaler", "international"], {
     required_error: "Select how you work with us",
   }),
-  products: z.array(z.string()).min(1, "Select at least one category"),
+  products: z.array(z.string()).min(1, "Select at least one product"),
   volume: z.string().min(2, "Describe volume or MOQ needs"),
   frequency: z.string().min(2, "Describe order frequency"),
   company: z.string().min(2, "Company name required"),
@@ -62,11 +59,17 @@ export function QuoteForm() {
   const buyerType = watch("buyerType");
   const products = watch("products") ?? [];
 
-  const toggleProduct = (id: string) => {
-    const next = products.includes(id)
-      ? products.filter((p) => p !== id)
-      : [...products, id];
-    setValue("products", next, { shouldValidate: true });
+  const addProduct = (id: string) => {
+    if (!id || products.includes(id)) return;
+    setValue("products", [...products, id], { shouldValidate: true });
+  };
+
+  const removeProduct = (id: string) => {
+    setValue(
+      "products",
+      products.filter((p) => p !== id),
+      { shouldValidate: true },
+    );
   };
 
   const nextStep = async () => {
@@ -180,28 +183,62 @@ export function QuoteForm() {
       {step === 2 && (
         <div className="space-y-4">
           <p className="text-lg font-medium text-navy-900">
-            Which categories interest you?
+            Which products interest you?
           </p>
-          <div className="space-y-2">
-            {PRODUCT_OPTIONS.map((opt) => (
-              <label
-                key={opt.id}
-                className={`flex cursor-pointer items-center gap-3 rounded-xl border-2 px-4 py-3 ${
-                  products.includes(opt.id)
-                    ? "border-seafoam-500 bg-seafoam-500/10"
-                    : "border-slate-200"
-                }`}
-              >
-                <input
-                  type="checkbox"
-                  checked={products.includes(opt.id)}
-                  onChange={() => toggleProduct(opt.id)}
-                  className="h-4 w-4 rounded border-slate-300 text-seafoam-600 focus:ring-seafoam-500"
-                />
-                <span className="text-sm text-navy-900">{opt.label}</span>
-              </label>
-            ))}
+          <p className="text-sm text-slate-600">
+            Choose from Core Products and Retail Assortment. Add as many as you
+            need.
+          </p>
+          <div>
+            <label htmlFor="quote-product-select" className="sr-only">
+              Select a product
+            </label>
+            <select
+              id="quote-product-select"
+              defaultValue=""
+              onChange={(e) => {
+                addProduct(e.target.value);
+                e.target.value = "";
+              }}
+              className="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-navy-900 focus:border-seafoam-500 focus:outline-none focus:ring-2 focus:ring-seafoam-500/20"
+            >
+              <option value="" disabled>
+                Select a product…
+              </option>
+              {QUOTE_PRODUCT_GROUPS.map((group) => (
+                <optgroup key={group.label} label={group.label}>
+                  {group.options.map((opt) => (
+                    <option
+                      key={opt.id}
+                      value={opt.id}
+                      disabled={products.includes(opt.id)}
+                    >
+                      {opt.label}
+                    </option>
+                  ))}
+                </optgroup>
+              ))}
+            </select>
           </div>
+          {products.length > 0 ? (
+            <ul className="flex flex-wrap gap-2">
+              {products.map((id) => (
+                <li key={id}>
+                  <button
+                    type="button"
+                    onClick={() => removeProduct(id)}
+                    className="inline-flex items-center gap-2 rounded-full border border-seafoam-500/30 bg-seafoam-500/10 px-3 py-1.5 text-left text-sm text-navy-900 transition hover:border-seafoam-500 hover:bg-seafoam-500/15"
+                  >
+                    <span>{QUOTE_PRODUCT_LABELS[id] ?? id}</span>
+                    <span className="text-slate-500" aria-hidden>
+                      ×
+                    </span>
+                    <span className="sr-only">Remove</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          ) : null}
           {errors.products && (
             <p className="text-sm text-red-600">{errors.products.message}</p>
           )}
