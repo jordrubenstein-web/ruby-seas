@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   RETAIL_INTRO,
@@ -102,6 +103,17 @@ export function RetailPageOne() {
             <div className="mt-5 grid gap-5 md:grid-cols-2">
               {RETAIL_TRACEABILITY.partners.map((partner) => (
                 <article key={partner.id} className={glassCard}>
+                  {"logo" in partner && partner.logo ? (
+                    <div className="mb-5 flex h-16 items-center">
+                      <Image
+                        src={partner.logo}
+                        alt={partner.logoAlt}
+                        width={160}
+                        height={64}
+                        className="h-14 w-auto max-w-full object-contain object-left drop-shadow-sm"
+                      />
+                    </div>
+                  ) : null}
                   <h4 className="font-display text-base font-bold text-navy-900">
                     {partner.name}
                   </h4>
@@ -127,9 +139,22 @@ export function RetailPageOne() {
             <div className="grid gap-5 lg:grid-cols-3">
               {RETAIL_SUSTAINABILITY.programs.map((program, i) => (
                 <article key={program.id} className={`flex h-full flex-col ${glassCard}`}>
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-navy-900 text-xs font-bold text-white">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
+                  <div className="flex items-start justify-between gap-3">
+                    <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-navy-900 text-xs font-bold text-white">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    {"logo" in program && program.logo ? (
+                      <div className="flex h-14 w-28 items-center justify-end sm:h-16 sm:w-32">
+                        <Image
+                          src={program.logo}
+                          alt={program.logoAlt}
+                          width={128}
+                          height={64}
+                          className="max-h-14 w-auto max-w-full object-contain object-right drop-shadow-sm sm:max-h-16"
+                        />
+                      </div>
+                    ) : null}
+                  </div>
                   <h4 className="mt-5 font-display text-base font-bold leading-snug text-navy-950">
                     {program.name}
                   </h4>

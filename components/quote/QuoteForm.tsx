@@ -34,6 +34,8 @@ const STEPS = ["Your role", "Product interest", "Details & contact"] as const;
 export function QuoteForm() {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [isSending, setIsSending] = useState(false);
 
   const {
     register,
@@ -79,9 +81,30 @@ export function QuoteForm() {
 
   const prevStep = () => setStep((s) => Math.max(1, s - 1));
 
-  const onSubmit = (data: QuoteFormValues) => {
-    console.log("Quote request:", data);
-    setSubmitted(true);
+  const onSubmit = async (data: QuoteFormValues) => {
+    setSubmitError(null);
+    setIsSending(true);
+    try {
+      const res = await fetch("/api/quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      const payload = (await res.json().catch(() => null)) as {
+        error?: string;
+      } | null;
+      if (!res.ok) {
+        setSubmitError(
+          payload?.error ?? "Unable to send quote request. Please try again.",
+        );
+        return;
+      }
+      setSubmitted(true);
+    } catch {
+      setSubmitError("Unable to send quote request. Please try again.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   if (submitted) {
@@ -304,19 +327,26 @@ export function QuoteForm() {
               {...register("message")}
             />
           </div>
+          {submitError ? (
+            <p className="text-sm text-red-600" role="alert">
+              {submitError}
+            </p>
+          ) : null}
           <div className="flex justify-between pt-2">
             <button
               type="button"
               onClick={prevStep}
-              className="rounded-full border border-slate-300 px-6 py-3 text-sm font-medium text-navy-900 hover:bg-slate-50"
+              disabled={isSending}
+              className="rounded-full border border-slate-300 px-6 py-3 text-sm font-medium text-navy-900 hover:bg-slate-50 disabled:opacity-60"
             >
               Back
             </button>
             <button
               type="submit"
-              className="rounded-full bg-seafoam-500 px-8 py-3 text-sm font-semibold text-white hover:bg-seafoam-600"
+              disabled={isSending}
+              className="rounded-full bg-seafoam-500 px-8 py-3 text-sm font-semibold text-white hover:bg-seafoam-600 disabled:opacity-60"
             >
-              Submit request
+              {isSending ? "Sending…" : "Submit request"}
             </button>
           </div>
         </div>

@@ -372,11 +372,15 @@ export const RETAIL_TRACEABILITY = {
       id: "gdst",
       name: "Global Dialogue on Seafood Traceability (GDST)",
       body: "Ruby Seas is a member of the Global Dialogue on Seafood Traceability (GDST), an international organization that develops standards for digital seafood traceability and supply chain interoperability.",
+      logo: "/retail/certs/gdst.png",
+      logoAlt: "Global Dialogue on Seafood Traceability logo",
     },
     {
       id: "wholechain",
       name: "Wholechain",
       body: "Ruby Seas works with Wholechain, a blockchain-based traceability platform, to review our supply chain and strengthen our digital traceability capabilities.",
+      logo: "/retail/certs/wholechain.png",
+      logoAlt: "Wholechain logo",
     },
   ],
 } as const;
@@ -388,16 +392,22 @@ export const RETAIL_SUSTAINABILITY = {
       id: "gsa",
       name: "Global Seafood Alliance (GSA)",
       body: "Ruby Seas has been a Corporate Member of the Global Seafood Alliance for many years, supporting responsible seafood production and supply chains worldwide.",
+      logo: "/retail/certs/gsa.png",
+      logoAlt: "Global Seafood Alliance logo",
     },
     {
       id: "msc",
       name: "Marine Stewardship Council (MSC)",
       body: "Ruby Seas maintains MSC Chain of Custody Certification, allowing us to handle and distribute certified seafood through a verified chain of custody. Our portfolio includes a variety of MSC-certified products, including Norwegian King Crab, Snow Crab, and other responsibly sourced seafood.",
+      logo: "/retail/certs/msc.png",
+      logoAlt: "Marine Stewardship Council certified sustainable seafood logo",
     },
     {
       id: "rpm",
       name: "Responsible Plastics Management (RPM)",
       body: "Ruby Seas participates in the Responsible Plastics Management (RPM) program and has completed training focused on improving recycling practices and increasing the use of recycled content in packaging where practical.",
+      logo: "/retail/certs/rpm.png",
+      logoAlt: "Responsible Plastics Management logo",
     },
   ],
 } as const;

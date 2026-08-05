@@ -26,6 +26,7 @@
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.2",
     "react-leaflet": "^4.2.1",
+    "resend": "^6.18.1",
     "three": "^0.170.0",
     "zod": "^3.23.8"
   },
